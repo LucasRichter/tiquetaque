@@ -1,0 +1,23 @@
+@import 'reset';
+
+//Mixins
+@import 'constants';
+@import 'fonts';
+
+p,
+div {
+  font-family: 'Work Sans', sans-serif;
+}
+
+h1,
+h2,
+a {
+  font-family: 'Montserrat', sans-serif;
+}
+
+//Components
+@import 'components/nav';
+@import 'components/header';
+
+//Page
+@import 'views/home';

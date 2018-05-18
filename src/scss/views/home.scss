@@ -1,0 +1,35 @@
+.home {
+	&__section {
+		&-first {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-image: url('../images/home/hero-01.png');
+			background-position: center;
+			background-size: cover;
+			position: relative;
+			transform: translate3d(0, 0, 0);
+			z-index: 1;
+			height: 789px;
+			text-align: center;
+		}
+
+		&__title {
+			margin: auto;
+			font-size: 60px;
+			color: #333;
+			line-height: 1.13;
+			letter-spacing: -2px;
+			font-weight: bold;
+			max-width: 394px;
+		}
+
+		&__text {
+			margin: 16px auto;
+			font-size: 15px;
+			max-width: 371px;
+			line-height: 1.6;
+  		color: #666;
+		}
+	}
+}
