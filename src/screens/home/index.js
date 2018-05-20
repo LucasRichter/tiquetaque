@@ -7,6 +7,7 @@ import OrganizacaoFaixa from './organizacaoFaixa'
 import AppFaixa from './appFaixa'
 import SemFidelidadeFaixa from './semFidelidadeFaixa'
 import Clientes from '../../components/clientes'
+import Duvidas from '../../components/duvidas'
 import ContatoFaixa from './contatoFaixa'
 import Footer from '../../components/footer'
 
@@ -20,6 +21,7 @@ export default function Home() {
       <AppFaixa />
       <SemFidelidadeFaixa />
       <Clientes />
+      <Duvidas />
       <ContatoFaixa />
       <Footer />
     </React.Fragment>

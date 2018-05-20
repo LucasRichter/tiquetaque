@@ -1,0 +1,111 @@
+.duvidas {
+  background-image: linear-gradient(120deg, #595478, #42969b);
+  padding: 104px 170px;
+  color: white;
+
+  &__block-left {
+    margin-left: 193px;
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__ajuda {
+    max-width: 273px;
+    span {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+  }
+
+  &__title {
+    font-size: 60px;
+    line-height: 1.13;
+    letter-spacing: -2px;
+    font-weight: bold;
+  }
+
+  &__topicos {
+    display: flex;
+    margin-bottom: 84px;
+  }
+
+  &__topico {
+    opacity: 0.5;
+    font-family: Montserrat;
+    font-size: 14px;
+    margin-right: 64px;
+    margin-top: 40px;
+    cursor: pointer;
+    transition: opacity .125s ease-in-out;
+
+    &::after {
+      content: '';
+      height: 4px;
+      background-color: #a0ab4d;
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 0;
+      bottom: -16px;
+      transition: width .125s ease-in-out;
+    }
+
+    &--ativo {
+      @extend .duvidas__topico;
+      position: relative;
+      opacity: 1;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.duvida {
+  color: white;
+  border-bottom: solid 1px transparentize(white, 0.9);
+  margin-bottom: 40px;
+
+  &--aberto {
+    @extend .duvida;
+    .duvida__seta {
+      transform: rotate(180deg);
+    }
+
+    .duvida__body {
+      display: block;
+      padding-bottom: 40px;
+    }
+  }
+
+  &__seta {
+    transition: transform .125s ease-in-out;
+    margin-left: 81px;
+  }
+
+  &__body {
+    font-size: 15px;
+    display: none;
+    line-height: 1.6;
+  }
+
+  &__header {
+    cursor: pointer;
+    display: flex;
+    padding-bottom: 16px;
+    justify-content: space-between;
+    font-size: 26px;
+    letter-spacing: -0.5px;
+  }
+}
