@@ -1,0 +1,49 @@
+{
+  "extends": ["eslint:all", "plugin:react/all", "idiomatic"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "func-names": ["error", "never"],
+    "linebreak-style": 0,
+    "indent": [
+      "error",
+      2,
+      { "SwitchCase": 1 }
+    ],
+    "no-console": ["error", { "allow": ["error"] }],
+    "semi": ["error", "never"],
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "one-var": 0,
+    "react/jsx-indent": [2, 2],
+    "react/jsx-indent-props": [2, 2],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/no-set-state": 0,
+    "react/jsx-curly-spacing": [2, "always", {"spacing": {
+      "objectLiterals": "never"
+    }}],
+    "react/jsx-boolean-value": 0,
+    "space-infix-ops": 0,
+    "react/jsx-no-bind": 0,
+    "react/forbid-prop-types": 0,
+    "react/jsx-handler-names": 0,
+    "react/forbid-component-props": 0,
+    "react/require-optimization": 0
+  },
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "plugins": [
+    "react",
+    "babel"
+  ],
+  "ecmaFeatures": {
+    "jsx": true
+  },
+  "globals": {
+    "window": false,
+    "document": false
+  }
+}

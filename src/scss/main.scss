@@ -5,7 +5,9 @@
 @import 'fonts';
 
 p,
-div {
+div,
+textarea,
+input {
   font-family: 'Work Sans', sans-serif;
 }
 
@@ -15,9 +17,12 @@ a {
   font-family: 'Montserrat', sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 //Components
-@import 'components/nav';
-@import 'components/header';
+@import 'components/*';
 
 //Page
-@import 'views/home';
+@import 'views/*';

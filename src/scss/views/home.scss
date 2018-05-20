@@ -4,32 +4,247 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			background-image: url('../images/home/hero-01.png');
 			background-position: center;
 			background-size: cover;
 			position: relative;
 			transform: translate3d(0, 0, 0);
 			z-index: 1;
-			height: 789px;
+			height: 483px;
 			text-align: center;
+
+			@media #{$tablet} {
+				height: 769px;
+				background-image: url('../images/home/hero-01.png');
+			}
 		}
 
 		&__title {
 			margin: auto;
-			font-size: 60px;
+			font-size: 30px;
 			color: #333;
 			line-height: 1.13;
 			letter-spacing: -2px;
 			font-weight: bold;
-			max-width: 394px;
+			max-width: 197px;
+
+			@media #{$tablet} {
+				font-size: 60px;
+				max-width: 394px;
+			}
 		}
 
 		&__text {
 			margin: 16px auto;
 			font-size: 15px;
-			max-width: 371px;
+			max-width: 188px;
 			line-height: 1.6;
-  		color: #666;
+			color: #666;
+
+			@media #{$tablet} {
+				max-width: 371px;
+			}
+		}
+
+		&__descubra {
+			font-size: 15px;
+			color: #595478;
+			display: block;
+
+			@media #{$tablet} {
+				margin-top: 104px;
+			}
+		}
+
+		&__wrapper {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+
+	&__title {
+		color: #333;
+		letter-spacing: -1.5px;
+		font-weight: bold;
+
+		@media #{$tablet} {
+			font-size: 38px;
+			margin-bottom: 24px;
+		}
+	}
+
+	&__app {
+		position: relative;
+
+		&__infos {
+			position: relative;
+		}
+
+		&__wrapper {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			z-index: 1;
+
+			.home__title {
+				@media #{$tablet} {
+					max-width: 202px;
+				}
+			}
+		}
+
+		&__img {
+			@media #{$tablet} {
+				margin-right: 192px;
+			}
+		}
+
+		&__cracha {
+			position: absolute;
+			right: 0;
+			top: 0;
+			transform: translateY(-100%);
+		}
+
+		&__links {
+			display: flex;
+
+			a {
+				display: block;
+				margin-right: 16.8px;
+			}
+		}
+
+		&__bg {
+			position: absolute;
+			left: 0;
+			top: 0;
+			transform: translateY(25%);
+			z-index: -1;
+		}
+
+		&__text {
+			color: #666;
+  		line-height: 1.6;
+
+			@media #{$tablet} {
+				font-size: 15px;
+				max-width: 351px;
+				margin-bottom: 40px;
+			}
+		}
+	}
+
+	&__organizacao {
+		margin-top: 170px;
+		position: relative;
+
+		&__infos {
+			display: flex;
+		}
+
+		&__bg {
+			position: absolute;
+			right: 0;
+			top: 0;
+			z-index: -2;
+		}
+
+		&__img-jornada {
+			position: absolute;
+			right: 55px;
+			top: 0;
+			z-index: -1;
+		}
+
+		&__img-horas {
+			margin-top: 91px;
+		}
+
+		&__wrapper {
+			@media #{$tablet} {
+				margin: 0 95px;
+			}
+
+			.home__title {
+				@media #{$tablet} {
+					max-width: 501px;
+				}
+			}
+		}
+
+		&__list {
+			margin-top: 80px;
+			margin-left: 75px;
+			margin-right: 102px;
+			max-width: 304px;
+
+			&__item {
+				align-items: flex-start;
+				display: flex;
+				color: #666;
+				font-size: 15px;
+  			line-height: 1.6;
+				margin-bottom: 40px;
+
+				p {
+					margin-left: 24px;
+				}
+			}
+		}
+	}
+
+	&__tique-taque {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: -70px 95px 0;
+
+		img {
+			z-index: 1;
+		}
+
+		&__img {
+			&-left {
+				margin-left: 148px;
+				margin-top: 68px;
+			}
+
+			&-right {
+				margin-bottom: 128px;
+				margin-right: 100px;
+			}
+		}
+
+		&__info {
+			text-align: center;
+			max-width: 201px;
+		}
+
+		&__title {
+			font-size: 14px;
+			color: #42969b;
+			font-weight: bold;
+			margin-bottom: 8px;
+		}
+
+		&__text {
+			font-size: 15px;
+			line-height: 1.6;
+			color: #333333;
+		}
+	}
+
+	&__sem-fidelidade {
+		margin-top: 64px;
+		font-size: 26px;
+		font-weight: bold;
+		letter-spacing: -0.7px;
+		text-align: center;
+		color: #333;
+
+		span {
+			color: #42969b;
 		}
 	}
 }

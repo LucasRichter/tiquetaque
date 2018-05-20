@@ -1,0 +1,52 @@
+.clientes {
+  margin: 205px 169px 169px 173px;
+
+  &__images {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: solid 1px #eeeeee;
+    margin: 68px auto 0;
+    padding: 64px 111px 0;
+
+    img {
+      margin-right: 85px;
+    }
+  }
+
+  &__aspas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &__comentarios {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__comentario {
+    position: relative;
+
+    &--2 {
+      @extend .clientes__comentario;
+      margin-top: 146px;
+      margin-left: 173px;
+    }
+  }
+
+  &__text {
+    max-width: 351px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 24px;
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+}

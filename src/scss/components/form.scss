@@ -1,0 +1,15 @@
+.form {
+  background-color: #fafafa;
+  padding: 104px 0 80px 319px;
+
+  &__infos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      margin-left: 100px;
+      margin-right: 245px;
+    }
+  }
+}
