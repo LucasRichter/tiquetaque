@@ -1,6 +1,30 @@
 .form {
   background-color: #fafafa;
-  padding: 104px 0 80px 319px;
+  padding: 92px 24px 64px;
+  position: relative;
+
+  .home__title {
+    max-width: 138px;
+    @media #{$tablet} {
+      max-width: none;
+    }
+  }
+
+  @media #{$tablet} {
+    padding: 104px 0 80px 319px;
+  }
+
+  &__inputs {
+    margin-top: 90px;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+
+    @media #{$tablet} {
+      margin-top: 0;
+    }
+  }
 
   &__infos {
     display: flex;
@@ -8,8 +32,21 @@
     align-items: center;
 
     img {
-      margin-left: 100px;
-      margin-right: 245px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 137.5px;
+      transform: translate(-25%, 25%);
+
+      @media #{$tablet} {
+        position: relative;
+        top: initial;
+        right: initial;
+        margin-left: 100px;
+        margin-right: 245px;
+        width: auto;
+        transform: translate(0,0);
+      }
     }
   }
 }

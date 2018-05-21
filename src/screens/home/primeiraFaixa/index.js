@@ -1,5 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Button, { TYPE_GRADIENT } from '../../../components/button'
+import { scrollTo } from '../../../utils/scroll'
+import { CLASS_TIQUE_TAQUE } from '../../../utils/constants'
 
 export default function primeiraFaixa() {
   return (
@@ -11,13 +13,15 @@ export default function primeiraFaixa() {
         <div className={ `home__section__text` }>
           <p>{`A solução de ponto simples e conectada para você ter mais dados e menos trabalho.`}</p>
         </div>
-        <Link
-          className={ `button--gradient` }
+        <Button
+          text={ `Reserve o seu` }
           to={ `/preorder` }
+          type={ TYPE_GRADIENT }
+        />
+        <div
+          className={ `home__section__descubra` }
+          onClick={ () => scrollTo( CLASS_TIQUE_TAQUE ) }
         >
-          {`Reserve o seu`}
-        </Link>
-        <div className={ `home__section__descubra` }>
           <p>{`Descubra tudo sobre o TiqueTaque`}</p>
           <img src={ require( 'images/icons/seta-baixo.svg' ) } />
         </div>

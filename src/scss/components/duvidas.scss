@@ -1,10 +1,16 @@
 .duvidas {
   background-image: linear-gradient(120deg, #595478, #42969b);
-  padding: 104px 170px;
   color: white;
+  padding: 64px 24px;
+
+  @media #{$tablet} {
+    padding: 104px 170px;
+  }
 
   &__block-left {
-    margin-left: 193px;
+    @media #{$tablet} {
+      margin-left: 193px;
+    }
   }
 
   &__block {
@@ -14,29 +20,51 @@
   }
 
   &__ajuda {
+    font-size: 15px;
     max-width: 273px;
     span {
       text-decoration: underline;
       cursor: pointer;
+      transition: opacity .125s ease-in-out;
+
+      &:hover {
+        opacity: .7;
+      }
     }
   }
 
   &__wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: stretch;
+
+    @media #{$tablet} {
+      flex-direction: row;
+    }
   }
 
   &__title {
-    font-size: 60px;
     line-height: 1.13;
+    font-size: 30px;
     letter-spacing: -2px;
     font-weight: bold;
+
+    @media #{$tablet} {
+      font-size: 60px;
+    }
   }
 
   &__topicos {
     display: flex;
-    margin-bottom: 84px;
+    padding-bottom: 60px;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-top: 40px;
+
+    @media #{$tablet} {
+      margin-bottom: 84px;
+    }
   }
 
   &__topico {
@@ -44,7 +72,6 @@
     font-family: Montserrat;
     font-size: 14px;
     margin-right: 64px;
-    margin-top: 40px;
     cursor: pointer;
     transition: opacity .125s ease-in-out;
 
@@ -105,7 +132,11 @@
     display: flex;
     padding-bottom: 16px;
     justify-content: space-between;
-    font-size: 26px;
     letter-spacing: -0.5px;
+    font-size: 20px;
+
+    @media #{$tablet} {
+      font-size: 26px;
+    }
   }
 }

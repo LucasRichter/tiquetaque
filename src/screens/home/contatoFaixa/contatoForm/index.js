@@ -1,8 +1,8 @@
-//<textarea id=`contato-ajuda` placeholder=`Como podemos ajudar?` className=`form__input--textarea`></textarea>
 import React from 'react'
 
 import Input from '../../../../components/input'
 import { TYPE_TEXT, TYPE_EMAIL, TYPE_NUMBER } from '../../../../components/input/types'
+import Button, { TYPE_FORM } from '../../../../components/button'
 
 export default class ContatoForm extends React.Component {
   constructor( props ) {
@@ -33,6 +33,10 @@ export default class ContatoForm extends React.Component {
     this.setState( { empresa: e.target.value } )
   }
 
+  handleTextoAjuda( e ) {
+    this.setState( { textoAjuda: e.target.value } )
+  }
+
   render() {
     return (
       <div className={ `form__inputs` }>
@@ -60,9 +64,17 @@ export default class ContatoForm extends React.Component {
           type={ TYPE_TEXT }
           value={ this.state.empresa }
         />
-        <button className={ `button--contato` }>
-          {`Enviar`}
-        </button>
+        <textarea
+          className={ `input--textarea` }
+          onChange={ this.handleTextoAjuda.bind( this ) }
+          placeholder={ `Como podemos ajudar?` }
+          value={ this.state.textoAjuda }
+        />
+        <Button
+          onClick={ () => {} }
+          text={ `Enviar` }
+          type={ TYPE_FORM }
+        />
       </div>
     )
   }

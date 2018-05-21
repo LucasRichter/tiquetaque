@@ -1,6 +1,9 @@
 import React from 'react'
 
 import Duvida from './duvida'
+import { scrollTo } from '../../utils/scroll'
+import { CLASS_CONTATO } from '../../utils/constants'
+import isMobile from '../../utils/device'
 
 const TOPICOS = [
   {
@@ -97,6 +100,17 @@ export default class Duvidas extends React.Component {
     ) )
   }
 
+  getAjuda() {
+    return (
+      <p className={ `duvidas__ajuda` }>
+        { `Se você não encontrou a informação que precisava, ` }
+        <span onClick={ () => scrollTo( CLASS_CONTATO ) } >
+          { `fale com a gente.` }
+        </span>
+      </p>
+    )
+  }
+
   render() {
     return (
       <div className={ `duvidas` }>
@@ -105,17 +119,13 @@ export default class Duvidas extends React.Component {
             <h2 className={ `duvidas__title` }>
               { `Dúvidas?` }
             </h2>
-            <p className={ `duvidas__ajuda` }>
-              { `Se você não encontrou a informação que precisava, ` }
-              <span>
-                { `fale com a gente.` }
-              </span>
-            </p>
+            { !isMobile() && this.getAjuda() }
           </div>
           <div className={ `duvidas__block-left` }>
             { this.getTopicos() }
             { this.getDuvidas() }
           </div>
+          { isMobile() && this.getAjuda() }
         </div>
       </div>
     )

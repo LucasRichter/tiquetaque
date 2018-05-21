@@ -1,19 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Logo from '../logo'
+import { scrollTo } from '../../utils/scroll'
+import { CLASS_TIQUE_TAQUE, CLASS_PLANOS, CLASS_DUVIDAS } from '../../utils/constants'
 
 const LINKS = [
   {
     texto: 'O TiqueTaque',
-    href: '/'
+    to: CLASS_TIQUE_TAQUE
   },
   {
     texto: 'Planos',
-    href: '/planos'
+    to: CLASS_PLANOS
   },
   {
     texto: 'Perguntas Frequentes',
-    href: '/perguntas-frequentes'
+    to: CLASS_DUVIDAS
   }
 ]
 
@@ -21,14 +22,12 @@ export default function Header() {
   const linksViews = LINKS.map( link => (
     <div
       className={ `nav__item-wrapper` }
-      key={ link.href }
+      key={ link.to }
+      onClick={ () => scrollTo( link.to ) }
     >
-      <Link
-        className={ `nav__item` }
-        to={ link.href }
-      >
+      <a className={ `nav__item` } >
         { link.texto }
-      </Link>
+      </a>
     </div>
   ) )
   return (

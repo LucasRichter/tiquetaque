@@ -4,6 +4,10 @@
 @import 'constants';
 @import 'fonts';
 
+html {
+  overflow-x: hidden;
+}
+
 p,
 div,
 textarea,

@@ -17,11 +17,11 @@ const LINKS = [
 const REDES_SOCIAIS = [
   {
     rede: 'facebook',
-    link: ''
+    link: 'https://www.facebook.com/meutiquetaque/'
   },
   {
     rede: 'instagram',
-    link: '',
+    link: 'https://www.instagram.com/tiquetaque',
   },
   {
     rede: 'twitter',

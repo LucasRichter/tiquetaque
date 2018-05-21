@@ -1,16 +1,29 @@
 .clientes {
-  margin: 205px 169px 169px 173px;
+  margin: 0 24px;
+
+  @media #{$tablet} {
+    margin: 205px 169px 169px 173px;
+  }
 
   &__images {
     display: flex;
     align-items: center;
     justify-content: center;
     border-top: solid 1px #eeeeee;
-    margin: 68px auto 0;
-    padding: 64px 111px 0;
+    flex-wrap: wrap;
+    margin: 0 0 60px;
+
+    @media #{$tablet} {
+      margin: 68px auto 0;
+      padding: 64px 111px 0;
+    }
 
     img {
-      margin-right: 85px;
+      margin: 40px 20px 30px;
+      @media #{$tablet} {
+        margin: 0;
+        margin-right: 85px;
+      }
     }
   }
 
@@ -23,8 +36,10 @@
   }
 
   &__comentarios {
-    display: flex;
-    align-items: flex-start;
+    @media #{$tablet} {
+      display: flex;
+      align-items: flex-start;
+    }
   }
 
   &__comentario {
@@ -32,8 +47,12 @@
 
     &--2 {
       @extend .clientes__comentario;
-      margin-top: 146px;
-      margin-left: 173px;
+      margin-top: 70px;
+
+      @media #{$tablet} {
+        margin-top: 146px;
+        margin-left: 173px;
+      }
     }
   }
 

@@ -1,0 +1,146 @@
+.planos {
+  text-align: center;
+  margin-top: 168px;
+
+  .home__title {
+    margin: 0 40px;
+
+    @media #{$tablet} {
+      margin: 0;
+    }
+  }
+
+  &__ajuda {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #666;
+    margin: 40px 40px 64px;
+
+    a {
+      color: #42969b;
+      transition: opacity .125s ease-in-out;
+
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
+
+  &__toggle {
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    align-items: center;
+    margin: 28px 0 40px;
+
+    &__texto {
+      color: #aaa;
+      transition: color .125s ease-in-out;
+
+      &--ativo {
+        @extend .planos__toggle__texto;
+        color: #333;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__desconto {
+    text-transform: uppercase;
+    color: white;
+    background-color: #a0ab4d;
+    margin-left: 8px;
+    padding: 2px 5px;
+    border-radius: 3px;
+  }
+
+  &__infos {
+    margin: 0 12px;
+
+    @media #{$tablet} {
+      margin: 0;
+      display: flex;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__nuvem {
+    &-left {
+      display: none;
+
+      @media #{$tablet} {
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
+        transform: translate(100%, -100%);
+      }
+    }
+
+    &-right {
+      display: none;
+
+      @media #{$tablet} {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: -1;
+        transform: translate(-100%, 100%);
+      }
+    }
+  }
+
+  &__block {
+    padding: 40px 20px;
+    color: white;
+    font-size: 15px;
+    margin: 12px;
+    text-align: left;
+    max-width: 351px;
+    border-radius: 3px;
+
+    @media #{$tablet} {
+      padding: 40px 64px;
+    }
+
+    &--3G {
+      @extend .planos__block;
+      background-image: linear-gradient(140deg, #595478, #42969b);
+    }
+
+    &--wifi {
+      @extend .planos__block;
+      background-image: linear-gradient(140deg, #42969b, #6ea077 47%, #a0ab4d);
+    }
+
+    &__title {
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+
+    &__funcionarios {
+      margin-top: 8px;
+      margin-bottom: 40px;
+
+      span {
+        font-size: 11px;
+      }
+    }
+
+    &__preco {
+      font-size: 38px;
+      font-weight: 600;
+      letter-spacing: -1;
+      padding-bottom: 40px;
+
+      span {
+        font-size: 12px;
+      }
+    }
+  }
+}

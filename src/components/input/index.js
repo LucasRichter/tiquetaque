@@ -17,6 +17,7 @@ export default class InputComponent extends React.Component {
     onFocus: func,
     onKeyPress: func,
     type: oneOf( VALID_TYPES ).isRequired,
+    textarea: bool,
     value: string.isRequired,
   }
 
@@ -24,6 +25,7 @@ export default class InputComponent extends React.Component {
     autoFocus: false,
     disabled: false,
     error: '',
+    textarea: false,
     onBlur: () => {},
     onFocus: () => {},
     onKeyPress: () => {},
@@ -54,10 +56,10 @@ export default class InputComponent extends React.Component {
   }
 
   render() {
-    const { disabled, fieldName, type, onFocus, onBlur, onChange, onKeyPress, value } = this.props
+    const { disabled, fieldName, type, onFocus, onBlur, onChange, onKeyPress, value, textarea } = this.props
     return (
       <input
-        className={ `input` }
+        className={ `input${textarea ? '--textarea' : ''}` }
         disabled={ disabled }
         name={ fieldName }
         onBlur={ onBlur }
