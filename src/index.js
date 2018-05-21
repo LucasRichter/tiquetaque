@@ -10,7 +10,7 @@ import HomeRoute from './routes/home'
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 require( 'scss/main.scss' )
-
+require( 'images/core/favicon.ico' )
 const store = createStore(
   preorder,
   composeEnhancers( applyMiddleware(
