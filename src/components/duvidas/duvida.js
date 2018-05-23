@@ -33,7 +33,7 @@ export default class Duvida extends React.Component {
           <p>{ titulo }</p>
           <img
             className={ `duvida__seta` }
-            src={ require( './images/seta-baixo.svg' ) }
+            src={ require( './images/seta-baixo-branco.svg' ) }
           />
         </div>
         <div className={ `duvida__body` }>

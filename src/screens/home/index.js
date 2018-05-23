@@ -11,6 +11,7 @@ import Clientes from '../../components/clientes'
 import Duvidas from '../../components/duvidas'
 import ContatoFaixa from './contatoFaixa'
 import Footer from '../../components/footer'
+import isMobile from '../../utils/device'
 
 export default function Home() {
   return (
@@ -23,6 +24,12 @@ export default function Home() {
       <PlanosFaixa />
       <EnviarEmailFaixa />
       <Clientes />
+      { !isMobile() &&
+        <img
+          className={ `home__prints` }
+          src={ require( '../../images/home/prints.png' ) }
+        />
+      }
       <Duvidas />
       <ContatoFaixa />
       <Footer />

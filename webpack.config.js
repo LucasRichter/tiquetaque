@@ -68,7 +68,7 @@ const rules = {
     use: [ {
       loader: 'file-loader',
       options: {
-        name: `[path][name].[ext]`,
+        name: `[name].[ext]`,
         context: path.resolve( __dirname, 'src/images' ),
         outputPath: `images/`,
       }
