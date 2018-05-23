@@ -1,5 +1,4 @@
 //Planos
-
 export const PLANOS = {
   mensal: {
     wifi: 99,
@@ -9,6 +8,17 @@ export const PLANOS = {
     wifi: 89,
     '3G': 129,
   }
+}
+
+export const MODELOS = {
+  wifi: {
+    dataLancamento: 'Agosto 2018',
+    preco: 89,
+  },
+  '3G': {
+    dataLancamento: 'Dezembro 2018',
+    preco: 129,
+  },
 }
 
 //Classes

@@ -1,7 +1,13 @@
 import $ from 'jquery'
 
 export function scrollTo( className ) {
+  let element = $( `.${className}` )
+
+  if ( !element.length ) {
+    return
+  }
+
   $( 'html, body' ).animate( {
-    scrollTop: $( `.${className}` ).offset().top
-  }, 2000 )
+    scrollTop: element.offset().top
+  }, 1000 )
 }

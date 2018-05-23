@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
 import preorder from './__store__/index.reducer'
 import HomeRoute from './routes/home'
+import PreorderRoute from './routes/preorder'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
@@ -24,6 +25,7 @@ render(
     <BrowserRouter>
       <Switch>
         { HomeRoute() }
+        { PreorderRoute() }
       </Switch>
     </BrowserRouter>
   </Provider>,

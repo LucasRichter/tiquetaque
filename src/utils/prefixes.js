@@ -1,5 +1,5 @@
 export const PREORDER = 'PREORDER'
-export const PLANO = 'PLANO'
+export const MODELO = 'MODELO'
 export const TIQUE_TAQUES = 'TIQUE-TAQUES'
 export const FUNCIONARIOS = 'FUNCIONARIOS'
 export const DADOS = 'DADOS'

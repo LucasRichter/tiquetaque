@@ -6,6 +6,7 @@ export default function HomeRoute() {
   return (
     <Route
       component={ Home }
+      exact
       path="/"
     />
   )
