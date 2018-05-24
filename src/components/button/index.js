@@ -101,13 +101,13 @@ export default class Button extends React.Component {
     let className = `${classTypeButton}${this.state.buttonModifer ? '--' + this.state.buttonModifer : ''}`
 
     return (
-      <div
+      <button
         className={ className }
         onClick={ this.click.bind( this ) }
       >
         { this.state.loader }
         { this.getContent() }
-      </div>
+      </button>
     )
   }
 

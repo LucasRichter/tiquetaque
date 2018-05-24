@@ -49,39 +49,49 @@ export default class PlanosInfos extends React.Component {
     this.setState( { planoSelecionado } )
   }
 
+  getToggle() {
+    const { planoSelecionado } = this.state
+
+    return (
+      <div className={ `planos__toggle` }>
+        <p className={ `planos__toggle__texto${planoSelecionado === 'mensal' ? '--ativo' : '' }` }>
+          { `Plano Mensal` }
+        </p>
+        <Toggle
+          checked={ planoSelecionado === 'anual' }
+          onChange={ this.handleToggleChange.bind( this ) }
+        />
+        <p className={ `planos__toggle__texto${planoSelecionado === 'anual' ? '--ativo' : '' }` }>
+          { `Plano Anual` }
+        </p>
+        <div className={ `planos__desconto` }>
+          <p>{ `até 14% off` }</p>
+        </div>
+        <img
+          src={ require( './images/risquinhos.svg' ) }
+        />
+      </div>
+    )
+  }
+
   render() {
     const { planoSelecionado } = this.state
 
     return (
       <React.Fragment>
-        <div className={ `planos__toggle` }>
-          <p className={ `planos__toggle__texto${planoSelecionado === 'mensal' ? '--ativo' : '' }` }>
-            { `Plano Mensal` }
-          </p>
-          <Toggle
-            checked={ planoSelecionado === 'anual' }
-            onChange={ this.handleToggleChange.bind( this ) }
-          />
-          <p className={ `planos__toggle__texto${planoSelecionado === 'anual' ? '--ativo' : '' }` }>
-            { `Plano Anual` }
-          </p>
-          <div className={ `planos__desconto` }>
-            <p>{ `até 14% off` }</p>
-          </div>
-          <img
-            src={ require( './images/risquinhos.svg' ) }
-          />
+        <div>
+          { this.getToggle() }
         </div>
         <div className={ `planos__infos` } >
           <img
             className={ `planos__nuvem-left` }
             src={ require( './images/nuvem.svg' ) }
           />
+          { this.getPlanosBlock() }
           <img
             className={ `planos__nuvem-right` }
             src={ require( './images/nuvem.svg' ) }
           />
-          { this.getPlanosBlock() }
         </div>
         <p className={ `planos__ajuda` }>
           { `Precisa de mais que 20 aparelhos? ` }

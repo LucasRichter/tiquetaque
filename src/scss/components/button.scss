@@ -9,6 +9,7 @@
   padding: 16px 40px;
   cursor: pointer;
   transition: opacity .125s ease-in-out;
+  border: 0;
 
   &:hover {
     opacity: .7;
@@ -24,7 +25,6 @@
     @extend .button;
     background-color: #42969b;
     color: white;
-    border: 0;
   }
 
   &--transparent {
