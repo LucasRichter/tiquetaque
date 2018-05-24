@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { element, array, oneOfType } from 'prop-types'
 
 PreorderShell.propTypes = {
@@ -10,9 +10,9 @@ PreorderShell.propTypes = {
 
 export default function PreorderShell( { children } ) {
   return (
-    <Fragment>
+    <section className={ `preorder-shell` }>
       <span className={ `preorder-shell__mark` } />
       { children }
-    </Fragment>
+    </section>
   )
 }

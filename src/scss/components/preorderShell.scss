@@ -1,4 +1,8 @@
 .preorder-shell {
+  @media #{$tablet} {
+    margin-left: 75px;
+  }
+
   &__mark {
     width: 63px;
     height: 4px;

@@ -31,14 +31,14 @@ function SelecionarPlanoComponent( { selecionarPlano, tipo } ) {
               </h2>
               { key === 'anual' &&
                 <div className={ `planos__desconto` }>
-                  <p>{ `até 14% off` }</p>
+                  <p>{ `14% off` }</p>
                 </div>
               }
             </div>
             <div className={ `selecionar-modelo__infos` }>
-              <p>
+              <span>
                 { TEXTS[ key ] }
-              </p>
+              </span>
             </div>
             <p className={ `selecionar-modelo__preco__valor` }>
               { `R$ ${PLANOS[ key ][ tipo ]}` }

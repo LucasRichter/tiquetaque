@@ -6,6 +6,10 @@
     color: #333;
     letter-spacing: -1.1px;
     margin: 67px 0 16px;
+    @media #{$tablet} {
+      margin: 0 0 16px;
+      font-size: 38px;
+    }
   }
 
   &__text {
@@ -13,5 +17,9 @@
     color: #666;
     line-height: 1.6;
     margin-bottom: 64px;
+    @media #{$tablet} {
+      margin-bottom: 80px;
+      max-width: 649px;
+    }
   }
 }
