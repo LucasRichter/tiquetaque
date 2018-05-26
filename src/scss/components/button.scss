@@ -32,6 +32,7 @@
     border: solid 1px transparentize(white, 0.8);
     background-color: transparent;
     color: white;
+    width: 100%;
   }
 
   &--email {
@@ -39,6 +40,13 @@
     border: solid 1px transparentize(#595478, 0.8);
     background-color: transparent;
     color: #42969b;
+  }
+
+  &--preorder {
+    @extend .button;
+    border: solid 1px transparentize(#595478, 0.8);
+    background-color: transparent;
+    color: #595478;
   }
 
   &__image {

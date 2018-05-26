@@ -16,8 +16,8 @@ export default class InputComponent extends React.Component {
     onChange: func.isRequired,
     onFocus: func,
     onKeyPress: func,
-    type: oneOf( VALID_TYPES ).isRequired,
     textarea: bool,
+    type: oneOf( VALID_TYPES ).isRequired,
     value: string.isRequired,
   }
 
@@ -57,20 +57,30 @@ export default class InputComponent extends React.Component {
 
   render() {
     const { disabled, fieldName, type, onFocus, onBlur, onChange, onKeyPress, value, textarea } = this.props
+    let tag = {}
+    tag.type = textarea ? 'textarea' : 'input'
     return (
-      <input
-        className={ `input${textarea ? '--textarea' : ''}` }
-        disabled={ disabled }
-        name={ fieldName }
-        onBlur={ onBlur }
-        onChange={ onChange }
-        onFocus={ onFocus }
-        onKeyPress={ onKeyPress }
-        placeholder={ fieldName }
-        ref={ ref => this.input = ref }
-        type={ VALID_TYPES.includes( type ) ? type : TYPE_TEXT }
-        value={ value }
-      />
+      <div className={ `input__block` } >
+        <tag.type
+          className={ `input${textarea ? '--textarea' : ''}` }
+          disabled={ disabled }
+          name={ fieldName }
+          onBlur={ onBlur }
+          onChange={ onChange }
+          onFocus={ onFocus }
+          onKeyPress={ onKeyPress }
+          placeholder={ fieldName }
+          ref={ ref => this.input = ref }
+          type={ VALID_TYPES.includes( type ) ? type : TYPE_TEXT }
+          value={ value }
+        />
+        <label
+          className={ `label` }
+          htmlFor={ fieldName }
+        >
+          { fieldName }
+        </label>
+      </div>
     )
   }
 }

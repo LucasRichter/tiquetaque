@@ -6,8 +6,9 @@ export const TYPE_GRADIENT = 'gradient'
 export const TYPE_FORM = 'contato'
 export const TYPE_TRANSPARENT = 'transparent'
 export const TYPE_ICON_EMAIL = 'email'
+export const TYPE_PREORDER = 'preorder'
 
-const VALID_TYPES = [ TYPE_GRADIENT, TYPE_TRANSPARENT, TYPE_FORM, TYPE_ICON_EMAIL ]
+const VALID_TYPES = [ TYPE_GRADIENT, TYPE_TRANSPARENT, TYPE_FORM, TYPE_ICON_EMAIL, TYPE_PREORDER ]
 const ICON_TYPES = [ TYPE_ICON_EMAIL ]
 
 export default class Button extends React.Component {

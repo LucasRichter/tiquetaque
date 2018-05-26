@@ -3,10 +3,13 @@ import { connect } from 'react-redux'
 import { func, string } from 'prop-types'
 import { PLANOS } from '../../utils/constants'
 import { selecionarPlano } from '../../__store__/modelo/modelo.actions'
+import { trocarEtapa, etapaCompleta } from '../../__store__/index.actions'
 
 SelecionarPlanoComponent.propTypes = {
+  etapaCompleta: func.isRequired,
   selecionarPlano: func.isRequired,
-  tipo: string.isRequired
+  tipo: string.isRequired,
+  trocarEtapa: func.isRequired,
 }
 
 const TEXTS = {
@@ -14,7 +17,7 @@ const TEXTS = {
   mensal: 'renovação do pagamento todos os meses',
 }
 
-function SelecionarPlanoComponent( { selecionarPlano, tipo } ) {
+function SelecionarPlanoComponent( { selecionarPlano, tipo, etapaCompleta, trocarEtapa } ) {
   return (
     <Fragment>
       <p className={ `selecionar-modelo__text` }>{ `O pagamento será mensal ou anual?` }</p>
@@ -23,7 +26,11 @@ function SelecionarPlanoComponent( { selecionarPlano, tipo } ) {
           <div
             className={ `selecionar-modelo__modelo` }
             key={ key }
-            onClick={ () => selecionarPlano( key ) }
+            onClick={ () => {
+              etapaCompleta( 2 )
+              selecionarPlano( key )
+              trocarEtapa( 3 )
+            } }
           >
             <div className={ `selecionar-modelo__header` }>
               <h2 className={ `selecionar-modelo__title` }>
@@ -67,7 +74,7 @@ const mapStateToProps = state => {
 
 const SelecionarPlano = connect(
   mapStateToProps,
-  { selecionarPlano }
+  { selecionarPlano, etapaCompleta, trocarEtapa }
 )( SelecionarPlanoComponent )
 
 export default SelecionarPlano

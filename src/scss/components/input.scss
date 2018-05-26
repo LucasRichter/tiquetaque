@@ -10,11 +10,57 @@
   border: 0;
   border-bottom: 1px solid #595478;
   margin-bottom: 35px;
+  padding-left: 4px;
+
+  & + label {
+    color: #333;
+    opacity: 1;
+    font-size: 12px;
+    transform: translate(4px, -10px);
+  }
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown {
+    & + label {
+      font-size: 15px;
+      transform: translate(4px, 10px);
+    }
+  }
+
+  &:focus {
+    box-shadow: 0 1px 0 0 #595478;
+
+    & + label {
+      color: #333;
+      opacity: 1;
+      font-size: 12px;
+      transform: translate(4px, -10px);
+    }
+  }
 
   &--textarea {
     @extend .input;
-    height: 120px;
+    height: 130px;
     resize: none;
     margin-bottom: 64px;
   }
+
+  &__block {
+    position: relative;
+    width: 100%;
+  }
+}
+
+.label {
+  color: #333;
+  left: 0;
+  opacity: .3;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transition: transform .125s ease-in-out,
+  font-size .125s ease-in-out;
 }

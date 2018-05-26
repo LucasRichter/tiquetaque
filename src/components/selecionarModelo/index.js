@@ -3,14 +3,15 @@ import { connect } from 'react-redux'
 import { func } from 'prop-types'
 import { MODELOS } from '../../utils/constants'
 import { selecionarTipo } from '../../__store__/modelo/modelo.actions'
-import { trocarEtapa } from '../../__store__/index.actions'
+import { trocarEtapa, etapaCompleta } from '../../__store__/index.actions'
 
 SelecionarModeloComponent.propTypes = {
+  etapaCompleta: func.isRequired,
   selecionarTipo: func.isRequired,
   trocarEtapa: func.isRequired,
 }
 
-function SelecionarModeloComponent( { selecionarTipo, trocarEtapa } ) {
+function SelecionarModeloComponent( { selecionarTipo, trocarEtapa, etapaCompleta } ) {
   return (
     <Fragment>
       <p className={ `selecionar-modelo__text` }>{ `Qual modelo você deseja?` }</p>
@@ -22,6 +23,7 @@ function SelecionarModeloComponent( { selecionarTipo, trocarEtapa } ) {
             onClick={ () => {
               selecionarTipo( key )
               trocarEtapa( 2 )
+              etapaCompleta( 1 )
             } }
           >
             <h2 className={ `selecionar-modelo__title` }>{ `TiqueTaque ${key}` }</h2>
@@ -61,7 +63,7 @@ function SelecionarModeloComponent( { selecionarTipo, trocarEtapa } ) {
 
 const SelecionarModelo = connect(
   null,
-  { selecionarTipo, trocarEtapa }
+  { selecionarTipo, trocarEtapa, etapaCompleta }
 )( SelecionarModeloComponent )
 
 export default SelecionarModelo

@@ -1,0 +1,33 @@
+$circle-size: 42px;
+
+.controlador-numero {
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-end;
+  margin: 0 0 64px;
+
+  &__circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid #42969b;
+    width: $circle-size;
+    height: $circle-size;
+
+    &--disabled {
+      @extend .controlador-numero__circle;
+      opacity: .2;
+    }
+  }
+
+  &__numero {
+    flex-basis: 0;
+    flex-grow: 1;
+    font-size: 38px;
+    text-align: center;
+    border-bottom: 1px solid #595478;
+    padding: 0 0 4px;
+    margin: 0 24px
+  }
+}

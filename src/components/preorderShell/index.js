@@ -5,7 +5,7 @@ PreorderShell.propTypes = {
   children: oneOfType( [
     array,
     element
-  ] ).isRequired
+  ] ).isRequired,
 }
 
 export default function PreorderShell( { children } ) {

@@ -64,10 +64,11 @@ export default class ContatoForm extends React.Component {
           type={ TYPE_TEXT }
           value={ this.state.empresa }
         />
-        <textarea
-          className={ `input--textarea` }
+        <Input
+          fieldName={ `Como podemos ajudar?` }
           onChange={ this.handleTextoAjuda.bind( this ) }
-          placeholder={ `Como podemos ajudar?` }
+          textarea
+          type={ TYPE_TEXT }
           value={ this.state.textoAjuda }
         />
         <Button

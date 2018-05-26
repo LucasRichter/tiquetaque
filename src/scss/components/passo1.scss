@@ -1,6 +1,4 @@
 .passo-1 {
-  margin: 0 0 40px;
-
   &__title {
     font-size: 28px;
     color: #333;
@@ -21,5 +19,11 @@
       margin-bottom: 80px;
       max-width: 649px;
     }
+  }
+}
+
+@for $i from 1 through 4 {
+  .passo-#{$i} {
+    margin-bottom: 80px;
   }
 }

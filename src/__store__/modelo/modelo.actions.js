@@ -11,7 +11,7 @@ export const selecionarTipo = tipo => {
 export const MODELO_SELECIONAR_PLANO = `${MODELO}_SELECIONAR-PLANO`
 export const selecionarPlano= plano => {
   return {
-    type: MODELO_SELECIONAR_TIPO,
+    type: MODELO_SELECIONAR_PLANO,
     plano,
   }
 }

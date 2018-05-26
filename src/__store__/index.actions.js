@@ -5,3 +5,27 @@ export const trocarEtapa = proximaEtapa => {
     proximaEtapa
   }
 }
+
+export const ETAPA_COMPLETA = 'ETAPA-COMPLETA'
+export const etapaCompleta = etapaCompleta => {
+  return {
+    type: ETAPA_COMPLETA,
+    etapaCompleta
+  }
+}
+
+export const SELECIONAR_TIQUE_TAQUES = 'SELECIONAR-TIQUE-TAQUES'
+export const selecionarTiqueTaques = tiquetaques => {
+  return {
+    type: SELECIONAR_TIQUE_TAQUES,
+    tiquetaques
+  }
+}
+
+export const SELECIONAR_FUNCIONARIOS = 'SELECIONAR-FUNCIONARIOS'
+export const selecionarFuncionarios = funcionarios => {
+  return {
+    type: SELECIONAR_FUNCIONARIOS,
+    funcionarios
+  }
+}
