@@ -5,9 +5,7 @@ import { PLANOS } from '../../utils/constants'
 import { getValorTotal } from '../../__store__/index.reducer'
 import isMobile from '../../utils/device'
 import InfosDesktop from './infosDesktop'
-import $ from 'jquery'
-
-let lastScrollTop = 0
+import { formatValor } from '../../utils/formatters'
 
 class ResumoPedidoComponent extends React.Component {
   static propTypes = {
@@ -23,27 +21,17 @@ class ResumoPedidoComponent extends React.Component {
     super( props )
   }
 
-  componentDidMount() {
-    let container = this.container
-    isMobile() && $( document ).on( 'scroll', function() {
-      let st = $( this ).scrollTop()
-      container[ st > lastScrollTop ? 'removeClass' : 'addClass' ]( 'fixed ' )
-      lastScrollTop = st
-    } )
-  }
-
   render() {
     const { valor, texto } = this.props
     return (
       <section
-        className={ `resumo-pedido` }
-        ref={ ref => this.container = $( ref ) }
+        className={ `resumo-pedido ${isMobile() && 'fixed'}` }
       >
         { !isMobile() && <InfosDesktop /> }
         <div className={ `resumo-pedido__block-valor` }>
           <p className={ `resumo-pedido__text` }>{ `Valor final` }</p>
-          <p className={ `resumo-pedido__valor` }>
-            { `R$ ${valor.toString().replace( '.', ',' )}` }
+          <p className={ `resumo-pedido__valor${valor ? '' : '--vazio'}` }>
+            { `R$ ${formatValor( valor )}` }
             <span>
               { `/${texto}`}
             </span>
@@ -58,10 +46,10 @@ const mapStateToProps = state => {
   let ultimaEtapaCompleta = state.ultimaEtapaCompleta
   let modelo = state.modelo
   let texto = ultimaEtapaCompleta === 1 ? 'mês no plano anual' : 'mês'
-  let valor = ultimaEtapaCompleta === 1 ? PLANOS[ 'anual' ][ modelo.tipo ].toFixed( 2 ) : getValorTotal( state )
+  let valor = ultimaEtapaCompleta === 1 ? PLANOS[ 'anual' ][ modelo.tipo ] : getValorTotal( state )
   return {
     texto,
-    valor,
+    valor: ultimaEtapaCompleta === 0 ? 0 : valor,
   }
 }
 

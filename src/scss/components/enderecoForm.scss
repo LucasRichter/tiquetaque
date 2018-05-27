@@ -3,6 +3,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    max-width: 352px;
+
+    .select__block {
+      width: 50%;
+    }
 
     .endereco-form__dummy {
       margin-right: 24px;

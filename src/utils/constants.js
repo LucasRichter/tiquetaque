@@ -36,3 +36,8 @@ export const validStates = [ 'AC', 'AL', 'AM', 'AP', 'BA', 'CE',
   'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC',
   'SE', 'SP', 'TO'
 ]
+
+
+export const MAIL_CHIMP_API_KEY = '0a46f13a14effea497058cdd803588eb-us18'
+export const VIA_CEP_URL = 'https://viacep.com.br/ws'
+

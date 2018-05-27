@@ -60,6 +60,10 @@
     position: relative;
     width: 100%;
   }
+
+  &.menor {
+    max-width: 201px;
+  }
 }
 
 .label {

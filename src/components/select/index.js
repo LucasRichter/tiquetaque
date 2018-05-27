@@ -37,7 +37,7 @@ export default function Select( { selected, fieldName, options } ) {
         <option value={ `` } >{ fieldName }</option>
         { options }
       </select>
-      <img src={ require( 'images/icons/seta-baixo.svg' ) } />
+      <img src={ require( './images/seta-select.svg' ) } />
     </div>
   )
 }

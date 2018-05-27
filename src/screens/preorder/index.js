@@ -44,10 +44,17 @@ class PreorderScreen extends Component {
 
   componentWillReceiveProps( nextProps ) {
     const { etapaAtual } = nextProps
-    this.setState( { etapaAtual }, () => isMobile() ? scrollTo( `passo-${etapaAtual}` ) :
-      $( this.mainContainer ).animate( {
-        scrollTop: $( `.passo-${etapaAtual}` ).offset().top
-      }, 500 ) )
+    this.setState( { etapaAtual }, () => {
+      if ( isMobile() ) {
+        scrollTo( `passo-${etapaAtual}` )
+      } else {
+        let el = $( `.passo-${etapaAtual}` )
+        let container = $( this.mainContainer )
+        container.animate( {
+          scrollTop: container.prop( 'scrollHeight' ) - el.height()
+        }, 500 )
+      }
+    } )
   }
 
   render() {

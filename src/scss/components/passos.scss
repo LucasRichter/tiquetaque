@@ -40,20 +40,33 @@
 }
 
 .passo-1 {
+  margin-bottom: 40px;
+
   @media #{$tablet} {
     margin-top: 128px;
+    margin-bottom: 80px;
   }
 }
 
-@for $i from 1 through 4 {
+@for $i from 2 through 5 {
   .passo-#{$i} {
-    margin-bottom: 80px;
+    margin-bottom: 100px;
     opacity: .4;
     transition: opacity .125s ease-in-out;
     box-sizing: content-box;
 
+    @media #{$tablet} {
+      margin-bottom: 80px;
+    }
+
     &.visible {
       opacity: 1;
     }
+  }
+}
+
+.passo-5 {
+  .input__block {
+    max-width: 352px;
   }
 }

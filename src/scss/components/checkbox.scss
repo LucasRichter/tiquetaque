@@ -18,9 +18,10 @@
 
   &__block {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
     font-size: 15px;
     color: #333;
+    user-select: none;
   }
 }

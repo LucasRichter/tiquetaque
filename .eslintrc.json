@@ -45,6 +45,8 @@
   "globals": {
     "window": false,
     "document": false,
-    "navigator": false
+    "navigator": false,
+    "Headers": false,
+    "fetch": false
   }
 }

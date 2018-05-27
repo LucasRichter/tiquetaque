@@ -99,13 +99,15 @@ class DadosFormComponent extends React.Component {
         />
         <Input
           fieldName={ `E-mail` }
-          onBlue={ this.validateEmail.bind( this ) }
+          onBlur={ this.validateEmail.bind( this ) }
           onChange={ this.handleEmail.bind( this ) }
           type={ TYPE_EMAIL }
           value={ dados.email }
         />
         <Input
           fieldName={ `Telefone` }
+          menor
+          onBlur={ this.validateTelefone.bind( this ) }
           onChange={ this.handleTelefone.bind( this ) }
           type={ TYPE_NUMBER }
           value={ dados.telefone }
@@ -118,6 +120,7 @@ class DadosFormComponent extends React.Component {
         />
         <Input
           fieldName={ tipoPessoa }
+          menor
           onBlur={ this[ `validate${capitalize( tipoPessoa )}` ].bind( this ) }
           onChange={ this[ `handle${capitalize( tipoPessoa )}` ].bind( this ) }
           type={ TYPE_NUMBER }

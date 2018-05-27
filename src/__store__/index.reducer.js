@@ -1,15 +1,14 @@
 import { DADOS, ENDERECO, MODELO } from '../utils/prefixes'
 import dados from './dados/dados.reducer'
 import endereco from './endereco/endereco.reducer'
-import modelo from './modelo/modelo.reducer'
+import modelo, { initialState as initialModelo } from './modelo/modelo.reducer'
 import { TROCAR_ETAPA, ETAPA_COMPLETA, SELECIONAR_TIQUE_TAQUES, SELECIONAR_FUNCIONARIOS, RECEBER_NOVIDADES, SELECIONAR_TIPO_PESSOA } from './index.actions'
 import { PLANOS, CNPJ } from '../utils/constants'
-import { formatValor } from '../utils/formatters'
 
 const initialState = {
   tiquetaques: 1,
   funcionarios: 30,
-  modelo: {},
+  modelo: initialModelo,
   dados: {},
   endereco: {},
   etapaAtual: 1,
@@ -54,10 +53,10 @@ export default function preorder( state = initialState, action ) {
 
 export function getValorTotal( state ) {
   let modelo = state.modelo
-  if ( !modelo.tipo ) {
-    return '0,00'
+  if ( modelo.tipo && modelo.plano ) {
+    let valorPlano = PLANOS[ modelo.plano ][ modelo.tipo ]
+    let funcionarios = state.funcionarios - ( state.tiquetaques * 30 )
+    return ( valorPlano * state.tiquetaques ) + ( funcionarios * 0.90 )
   }
-  let valorPlano = PLANOS[ modelo.plano ][ modelo.tipo ]
-  let funcionarios = state.funcionarios - ( state.tiquetaques * 30 )
-  return formatValor( ( valorPlano * state.tiquetaques ) + ( funcionarios * 0.90 ) )
+  return 0
 }

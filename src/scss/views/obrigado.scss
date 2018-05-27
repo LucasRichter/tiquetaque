@@ -1,12 +1,47 @@
 .obrigado {
   margin: 64px 24px 162px;
+  position: relative;
+
+  @media #{$tablet} {
+    margin: 64px 95px 0;
+  }
+
+  &__block {
+    margin-top: 64px;
+    position: relative;
+
+    @media #{$tablet} {
+      margin-top: 124px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+  }
+
+  &__texts {
+    @media #{$tablet} {
+      max-width: 428px;
+      margin-right: 39px;
+      margin-left: 57px;
+    }
+  }
+
+  &__check {
+    margin-bottom: 10px;
+    display: block;
+  }
 
   &__title {
-    margin-top: 64px;
     max-width: 312px;
     font-size: 28px;
     letter-spacing: -1.1px;
     color: #333;
+
+    @media #{$tablet} {
+      max-width: none;
+      font-size: 38px;
+      letter-spacing: -1.5px;
+    }
   }
 
   &__text {
@@ -16,10 +51,51 @@
     margin: 16px 0 40px;
   }
 
+  &__redes {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 40px 0;
+
+    a {
+      margin-right: 24px;
+    }
+  }
+
   &__link {
     font-family: Work Sans;
     font-size: 15px;
     line-height: 1.6;
     color: #42969b;
+  }
+
+  &__bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 553px;
+    z-index: -1;
+    transform: translate(-40%, 10%);
+
+    @media #{$tablet} {
+      top: 21px;
+      transform: none;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 204.5px;
+    transform: translate(10%, 80%);
+
+    @media #{$tablet} {
+      position: static;
+      width: auto;
+      transform: none;
+      bottom: inherit;
+      right: inherit;
+    }
   }
 }

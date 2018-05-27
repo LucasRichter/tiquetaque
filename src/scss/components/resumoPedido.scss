@@ -42,6 +42,10 @@
   &__valor {
     color: white;
     font-size: 28px;
+    &--vazio {
+      @extend .resumo-pedido__valor;
+      opacity: .4;
+    }
 
     span {
       font-size: 14px;

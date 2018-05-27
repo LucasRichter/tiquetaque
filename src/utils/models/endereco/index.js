@@ -96,7 +96,7 @@ const FieldsMixins = {
     data.obj.errors = Object.assign( {}, data.obj.errors, { [ data.field ]: isValid ? '' : INVALID_LONG_COMPLEMENT } )
     return isValid
   } } ),
-  ibge: SharedFields.text( {} )
+  pais: SharedFields.text( {} )
 }
 
 export default FieldsMixins

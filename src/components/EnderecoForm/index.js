@@ -5,6 +5,7 @@ import EnderecoModel from '../../utils/models/EnderecoModel'
 import FactoryHelper from '../../utils/FactoryHelper'
 import { validStates } from '../../utils/constants'
 import Select from '../select'
+import { consultaCep } from '../../utils/cep'
 
 export default class EnderecoForm extends React.Component {
   constructor( props ) {
@@ -25,11 +26,15 @@ export default class EnderecoForm extends React.Component {
   }
 
   handleComplemento( e ) {
-    this.update( { email: e.target.value } )
+    this.update( { complemento: e.target.value } )
   }
 
   handleNumero( e ) {
-    this.update( { telefone: e.target.value } )
+    this.update( { numero: e.target.value } )
+  }
+
+  handlePais( e ) {
+    this.update( { pais: e.target.value } )
   }
 
   validate( fn ) {
@@ -40,6 +45,16 @@ export default class EnderecoForm extends React.Component {
 
   validateCep() {
     this.validate( this.state.endereco.validateCep )
+    this.buscarCep()
+  }
+
+  buscarCep() {
+    const { endereco } = this.state
+    consultaCep( { cep: endereco.cep } )
+      .then( endereco => {
+        let newEndereco = EnderecoModel().fromProps( endereco )
+        this.setState( { endereco: newEndereco } )
+      } )
   }
 
   render() {
@@ -50,6 +65,7 @@ export default class EnderecoForm extends React.Component {
         <p className={ `passos__title--big` }>{ `Endereço de entrega` }</p>
         <Input
           fieldName={ `CEP` }
+          menor
           onBlur={ this.validateCep.bind( this ) }
           onChange={ this.handleCep.bind( this ) }
           type={ TYPE_NUMBER }
@@ -89,6 +105,7 @@ export default class EnderecoForm extends React.Component {
             type={ TYPE_TEXT }
             value={ endereco.cidade }
           />
+          <div className={ `endereco-form__dummy` } />
           <Select
             fieldName={ `UF` }
             options={ validStates }
@@ -97,7 +114,8 @@ export default class EnderecoForm extends React.Component {
         </div>
         <Input
           fieldName={ `País` }
-          onChange={ this.handleNumero.bind( this ) }
+          menor
+          onChange={ this.handlePais.bind( this ) }
           type={ TYPE_TEXT }
           value={ endereco.pais }
         />

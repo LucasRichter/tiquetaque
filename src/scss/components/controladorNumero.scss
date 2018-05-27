@@ -23,6 +23,15 @@ $circle-size: 42px;
       @extend .controlador-numero__circle;
       opacity: .2;
     }
+
+    @media #{$tablet} {
+      cursor: pointer;
+      transition: opacity .125s ease-in-out;
+
+      &:hover {
+        opacity: .7;
+      }
+    }
   }
 
   &__numero {
