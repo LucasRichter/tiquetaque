@@ -47,6 +47,7 @@
     "document": false,
     "navigator": false,
     "Headers": false,
-    "fetch": false
+    "fetch": false,
+    "firebase": false
   }
 }

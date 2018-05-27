@@ -38,6 +38,10 @@ export const validStates = [ 'AC', 'AL', 'AM', 'AP', 'BA', 'CE',
 ]
 
 
-export const MAIL_CHIMP_API_KEY = '0a46f13a14effea497058cdd803588eb-us18'
 export const VIA_CEP_URL = 'https://viacep.com.br/ws'
-
+export const FIREBASE_API_KEY = 'AIzaSyCKG-uuKlaT5y1aM6dIv-LvmNvREG8CsOc'
+export const FIREBASE_AUTH_DOMAIN = 'tique-taque-teste.firebaseapp.com'
+export const FIREBASE_DATABASE_URL = 'https://tique-taque-teste.firebaseio.com'
+export const FIREBASE_PROJET_ID = 'tique-taque-teste'
+export const FIREBASE_STORAGE_BUCKET = 'tique-taque-teste.appspot.com'
+export const FIREBASE_MESSAGING_SENDER_ID = '766880891163'

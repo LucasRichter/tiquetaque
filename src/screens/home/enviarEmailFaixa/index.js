@@ -3,6 +3,7 @@ import Input from '../../../components/input'
 import { TYPE_EMAIL } from '../../../components/input/types'
 import Button, { TYPE_ICON_EMAIL } from '../../../components/button'
 import isMobile from '../../../utils/device'
+import Firebase from '../../../utils/Firebase'
 
 export default class EnviarEmailFaixa extends React.Component {
   constructor( props ) {
@@ -62,7 +63,12 @@ export default class EnviarEmailFaixa extends React.Component {
               value={ this.state.email }
             />
             <Button
-              onClick={ () => {} }
+              onClick={ () => {
+                this.dado
+                if ( !this.state.dados.erros.email ) {
+                  new Firebase().salvarEmailAvisoDisponivel( this.state.email )
+                }
+              } }
               text={ `Avise-me quando disponível` }
               type={ TYPE_ICON_EMAIL }
             />

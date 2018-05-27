@@ -21,6 +21,15 @@ const store = createStore(
   ) )
 )
 
+firebase.initializeApp( {
+  apiKey: 'AIzaSyCDyEeKM-h_h68C08LgqV-KVnkuj4S_I1A',
+  authDomain: 'tique-taque-dados.firebaseapp.com',
+  databaseURL: 'https://tique-taque-dados.firebaseio.com',
+  projectId: 'tique-taque-dados',
+  storageBucket: '',
+  messagingSenderId: '826396630468'
+} )
+
 render(
   <Provider store={ store }>
     <BrowserRouter>
