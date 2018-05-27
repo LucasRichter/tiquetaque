@@ -1,0 +1,25 @@
+.obrigado {
+  margin: 64px 24px 162px;
+
+  &__title {
+    margin-top: 64px;
+    max-width: 312px;
+    font-size: 28px;
+    letter-spacing: -1.1px;
+    color: #333;
+  }
+
+  &__text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #666;
+    margin: 16px 0 40px;
+  }
+
+  &__link {
+    font-family: Work Sans;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #42969b;
+  }
+}

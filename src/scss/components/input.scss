@@ -19,6 +19,14 @@
     transform: translate(4px, -10px);
   }
 
+  &:disabled {
+    opacity: 0.16;
+
+    & + label {
+      opacity: 0.16;
+    }
+  }
+
   &::placeholder {
     color: transparent;
   }

@@ -1,0 +1,12 @@
+.endereco-form {
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .endereco-form__dummy {
+      margin-right: 24px;
+      display: block;
+    }
+  }
+}

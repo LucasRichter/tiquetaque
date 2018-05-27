@@ -1,0 +1,35 @@
+.select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  user-select: none;
+  width: 100%;
+  opacity: 0.8;
+  height: 40px;
+  font-size: 15px;
+  color: #333;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid #595478;
+  margin-bottom: 35px;
+  padding-left: 4px;
+
+  &__block {
+    position: relative;
+  }
+
+  & + img {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &:disabled {
+    opacity: .16;
+
+    & + img {
+      opacity: .16;
+    }
+  }
+}

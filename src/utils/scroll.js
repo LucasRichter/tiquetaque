@@ -9,5 +9,13 @@ export function scrollTo( className ) {
 
   $( 'html, body' ).animate( {
     scrollTop: element.offset().top
-  }, 1000 )
+  }, 500 )
+}
+
+export function isInViewport( element ) {
+  var elementTop = element.offset().top - 300
+  var elementBottom = elementTop + element.outerHeight()
+  var viewportTop = $( window ).scrollTop()
+  var viewportBottom = viewportTop + $( window ).height()
+  return elementBottom > viewportTop && elementTop < viewportBottom
 }

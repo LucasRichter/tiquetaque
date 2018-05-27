@@ -17,7 +17,7 @@ function SelecionarFuncionariosComponent( { menorLimite, selecionarFuncionarios,
   return (
     <Fragment>
       <p className={ `selecionar-modelo__text` }>{ `Quantos funcionários utilizarão os Funcionarios?` }</p>
-      <p className={ `passo-1__text` }>{ `30 funcionários inclusos por unidade. R$ 0,90 ao mês por funcionário adicional.` }</p>
+      <p className={ `passos__text` }>{ `30 funcionários inclusos por unidade. R$ 0,90 ao mês por funcionário adicional.` }</p>
       <ControladorNumero
         handleNumero={ selecionarFuncionarios }
         menorLimite={ menorLimite }

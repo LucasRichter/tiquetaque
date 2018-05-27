@@ -28,6 +28,10 @@
   }
 
   &__modelo {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: flex-start;
     background-color: white;
     padding: 24px;
     margin: 24px 0;
@@ -96,6 +100,7 @@
       &--ano {
         @extend .selecionar-modelo__preco__valor;
         font-size: 15px;
+        width: 228px;
       }
     }
   }
@@ -118,6 +123,10 @@
     padding: 16.5px 0 0;
     color: #aaa;
     font-size: 12px;
+
+    @media #{$tablet} {
+      width: 228px;
+    }
 
     &__lancamento {
       font-size: 15px;

@@ -18,7 +18,7 @@ function SelecionarTiqueTaquesComponents( { selecionarTiqueTaques, tiquetaques, 
   return (
     <Fragment>
       <p className={ `selecionar-modelo__text` }>{ `Quantos TiqueTaques você quer?` }</p>
-      <p className={ `passo-1__text` }>{ `Cada unidade sair por R$ ${valorPlanoEscolhido} ao mês no plano escolhido.` }</p>
+      <p className={ `passos__text` }>{ `Cada unidade sair por R$ ${valorPlanoEscolhido} ao mês no plano escolhido.` }</p>
       <ControladorNumero
         handleNumero={ selecionarTiqueTaques }
         numero={ tiquetaques }

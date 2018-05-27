@@ -13,7 +13,7 @@ export default class InputComponent extends React.Component {
     error: string.isRequired,
     fieldName: string.isRequired,
     onBlur: func,
-    onChange: func.isRequired,
+    onChange: func,
     onFocus: func,
     onKeyPress: func,
     textarea: bool,
@@ -27,6 +27,7 @@ export default class InputComponent extends React.Component {
     error: '',
     textarea: false,
     onBlur: () => {},
+    onChange: () => {},
     onFocus: () => {},
     onKeyPress: () => {},
   }

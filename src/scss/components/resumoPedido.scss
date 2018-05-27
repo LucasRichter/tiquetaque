@@ -1,13 +1,36 @@
 .resumo-pedido {
-  bottom: 0;
-  left: 0;
   padding: 16px 25px;
   background-image: linear-gradient(104deg, #595478, #42969b);
   width: 100%;
-  margin-top: 64px;
 
-  p {
-    font-family: 'Montserrat', sans-serif !important;
+  @media #{$tablet} {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+    padding: 64px 75px 40px;
+    box-sizing: border-box;
+    max-height: 740px;
+    max-width: 521px;
+  }
+
+  &.fixed {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+  }
+
+  &__block-valor {
+    @media #{$tablet} {
+      border-top: 1px solid transparentize($color: white, $amount: .9);
+      padding: 24px 0 0;
+      width: 100%;
+    }
+    p {
+      font-family: 'Montserrat', sans-serif !important;
+    }
   }
 
   &__text {
@@ -23,5 +46,27 @@
     span {
       font-size: 14px;
     }
+  }
+
+  &__infos {
+    width: 100%;
+    margin-top: 80px;
+  }
+
+  &__row {
+    @media #{$tablet} {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      width: 100%;
+      font-size: 15px;
+      color: white;
+      margin-bottom: 40px;
+      text-transform: capitalize;
+    }
+  }
+
+  &__main {
+    width: 100%;
   }
 }

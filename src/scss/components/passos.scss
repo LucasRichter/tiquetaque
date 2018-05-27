@@ -1,0 +1,59 @@
+.passos {
+  &__title {
+    font-size: 28px;
+    color: #333;
+    letter-spacing: -1.1px;
+    margin: 67px 0 16px;
+    @media #{$tablet} {
+      margin: 0 0 16px;
+      font-size: 38px;
+    }
+
+    &--big {
+      @extend .passos__title;
+      font-size: 26px;
+      letter-spacing: -0.5px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__text {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 64px;
+    @media #{$tablet} {
+      margin-bottom: 80px;
+      max-width: 649px;
+    }
+  }
+
+  &__finalizar-text {
+    font-size: 15px;
+    color: #333;
+    margin: 24px 0 40px;
+
+    a {
+      color: #42969b;
+    }
+  }
+}
+
+.passo-1 {
+  @media #{$tablet} {
+    margin-top: 128px;
+  }
+}
+
+@for $i from 1 through 4 {
+  .passo-#{$i} {
+    margin-bottom: 80px;
+    opacity: .4;
+    transition: opacity .125s ease-in-out;
+    box-sizing: content-box;
+
+    &.visible {
+      opacity: 1;
+    }
+  }
+}

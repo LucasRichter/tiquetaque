@@ -13,7 +13,8 @@ p,
 div,
 textarea,
 input,
-span {
+span,
+label {
   font-family: 'Work Sans', sans-serif;
 }
 
@@ -28,13 +29,6 @@ button {
 
 a {
   text-decoration: none;
-}
-
-
-.app {
-  section {
-    max-width: 1366px;  
-  }
 }
 
 //Components

@@ -29,3 +29,19 @@ export const selecionarFuncionarios = funcionarios => {
     funcionarios
   }
 }
+
+export const RECEBER_NOVIDADES = 'RECEBER-NOVIDADES'
+export const saveReceverNovidades = receberNovidades => {
+  return {
+    type: RECEBER_NOVIDADES,
+    receberNovidades
+  }
+}
+
+export const SELECIONAR_TIPO_PESSOA = 'SELECIONAR-TIPO-PESSOA'
+export const selecionarTipoPessoa = tipoPessoa => {
+  return {
+    type: SELECIONAR_TIPO_PESSOA,
+    tipoPessoa
+  }
+}

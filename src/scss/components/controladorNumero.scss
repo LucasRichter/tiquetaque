@@ -6,6 +6,10 @@ $circle-size: 42px;
   align-content: flex-end;
   margin: 0 0 64px;
 
+  @media #{$tablet} {
+    justify-content: flex-start;
+  }
+
   &__circle {
     display: flex;
     align-items: center;
@@ -28,6 +32,10 @@ $circle-size: 42px;
     text-align: center;
     border-bottom: 1px solid #595478;
     padding: 0 0 4px;
-    margin: 0 24px
+    margin: 0 24px;
+
+    @media #{$tablet} {
+      max-width: 100px;
+    }
   }
 }
