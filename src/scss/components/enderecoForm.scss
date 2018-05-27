@@ -1,8 +1,8 @@
 .endereco-form {
   &__row {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-end;
+    justify-content: flex-end;
     max-width: 352px;
 
     .select__block {

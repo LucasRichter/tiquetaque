@@ -6,7 +6,7 @@
   margin: 0 0 104px;
 
   @media #{$tablet} {
-    overflow-x: inherit;
+    overflow-x: initial;
     padding: 0;
     margin: 208px auto 104px;
     max-width: 874px;
@@ -57,6 +57,7 @@
       font-size: 15px;
       line-height: 1.6;
       color: #666;
+      margin-bottom: 20px;
     }
 
     &__em-breve {

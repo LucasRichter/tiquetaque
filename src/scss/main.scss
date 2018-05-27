@@ -4,12 +4,6 @@
 @import 'constants';
 @import 'fonts';
 
-html,
-body {
-  overflow-x: hidden;
-  height: 100%;
-}
-
 p,
 div,
 textarea,
@@ -30,6 +24,10 @@ button {
 
 a {
   text-decoration: none;
+}
+
+#app {
+  overflow-x: hidden;
 }
 
 //Components
