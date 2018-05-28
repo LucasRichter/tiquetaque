@@ -58,7 +58,7 @@ export default function Obrigado() {
         </div>
         <img
           className={ `obrigado__img` }
-          src={ require( './images/ilustra.png' ) }
+          src={ require( './images/ilustra-obrigado.png' ) }
         />
       </div>
       <img

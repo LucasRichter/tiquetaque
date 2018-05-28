@@ -1,4 +1,5 @@
 import React from 'react'
+import { func } from 'prop-types'
 import Input from '../input'
 import { TYPE_TEXT, TYPE_NUMBER } from '../input/types'
 import EnderecoModel from '../../utils/models/EnderecoModel'
@@ -8,6 +9,11 @@ import Select from '../select'
 import { consultaCep } from '../../utils/cep'
 
 export default class EnderecoForm extends React.Component {
+
+  static propTypes = {
+    setModel: func.isRequired,
+  }
+
   constructor( props ) {
     super( props )
 
@@ -18,7 +24,7 @@ export default class EnderecoForm extends React.Component {
 
   update( value ) {
     let endereco = FactoryHelper.assign( EnderecoModel, this.state.endereco, value )
-    this.setState( { endereco } )
+    this.setState( { endereco }, () => this.props.setModel( endereco ) )
   }
 
   handleCep( e ) {
@@ -40,7 +46,7 @@ export default class EnderecoForm extends React.Component {
   validate( fn ) {
     fn()
     let endereco = FactoryHelper.clone( EnderecoModel, this.state.endereco )
-    this.setState( { endereco } )
+    this.setState( { endereco }, () => this.props.setModel( endereco ) )
   }
 
   validateCep() {
@@ -53,7 +59,7 @@ export default class EnderecoForm extends React.Component {
     consultaCep( { cep: endereco.cep } )
       .then( endereco => {
         let newEndereco = EnderecoModel().fromProps( endereco )
-        this.setState( { endereco: newEndereco } )
+        this.setState( { endereco: newEndereco }, () => this.props.setModel( newEndereco ) )
       } )
   }
 

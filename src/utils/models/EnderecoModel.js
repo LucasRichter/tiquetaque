@@ -1,6 +1,5 @@
 import FactoryHelper from '../FactoryHelper'
 import Mixins from './endereco'
-import { normalizeNumberString } from '../formatters'
 import { isEmptyObject } from '../validators'
 
 const EnderecoModel = () => {
@@ -48,8 +47,7 @@ const EnderecoModel = () => {
         complemento: endereco.complemento,
         cidade: endereco.cidade,
         numero: endereco.numero,
-        cep: normalizeNumberString( endereco.cep ),
-        ibge: endereco.ibge
+        cep: endereco.cep,
       }
     }
   } )

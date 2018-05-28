@@ -1,13 +1,18 @@
 import uuid from 'uuid/v4'
 
-export default class Firebase {
-  salvarEmailAvisoDisponivel( email ) {
+const Firebase = {
+  salvarEmailAvisoDisponivel: email => {
     let id = uuid()
     firebase.database().ref( `/aviso-email-disponivel/${id}` ).set( { email } )
-  }
-
-  salvarPreorder( preorder ) {
+  },
+  salvarPreorder: ( preorder ) => {
     let id = uuid()
-    firebase.database().ref( `/aviso-email-disponivel/${id}` ).set( preorder )
+    firebase.database().ref( `/preorder/${id}` ).set( preorder )
+  },
+  salvarContato: contato => {
+    let id = uuid()
+    firebase.database().ref( `/contato/${id}` ).set( contato )
   }
 }
+
+export default Firebase

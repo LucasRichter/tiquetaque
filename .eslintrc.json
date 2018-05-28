@@ -48,6 +48,7 @@
     "navigator": false,
     "Headers": false,
     "fetch": false,
-    "firebase": false
+    "firebase": false,
+    "alert": false
   }
 }

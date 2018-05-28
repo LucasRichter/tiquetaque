@@ -96,7 +96,7 @@ const FieldsMixins = {
     data.obj.errors = Object.assign( {}, data.obj.errors, { [ data.field ]: isValid ? '' : INVALID_LONG_COMPLEMENT } )
     return isValid
   } } ),
-  pais: SharedFields.text( {} )
+  pais: SharedFields.text( { setter: TitleClass.transform } )
 }
 
 export default FieldsMixins

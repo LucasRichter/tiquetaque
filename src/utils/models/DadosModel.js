@@ -1,8 +1,6 @@
 import Mixins from './dados'
 import FactoryHelper from '../FactoryHelper'
 
-import { normalizeNumberString } from '../formatters'
-
 const DadosModel = () => {
   const requiredFields = [ 'nome', 'telefone', 'email' ]
   let dados = {}
@@ -20,9 +18,10 @@ const DadosModel = () => {
     value: () => {
       return {
         nome: dados.nome,
-        cpf: normalizeNumberString( dados.cpf ),
+        cpf: dados.cpf,
+        cnpj: dados.cnpj,
         email: dados.email,
-        telefone: normalizeNumberString( dados.telefone )
+        telefone: dados.telefone
       }
     }
   } )

@@ -13,6 +13,7 @@ import { selecionarTipoPessoa } from '../../__store__/index.actions'
 class DadosFormComponent extends React.Component {
   static propTypes = {
     selecionarTipoPessoa: func.isRequired,
+    setModel: func.isRequired,
     tipoPessoa: string.isRequired,
   }
   constructor( props ) {
@@ -25,7 +26,7 @@ class DadosFormComponent extends React.Component {
 
   update( value ) {
     let dados = FactoryHelper.assign( DadosModel, this.state.dados, value )
-    this.setState( { dados } )
+    this.setState( { dados }, () => this.props.setModel( dados ) )
   }
 
   handleNome( e ) {
@@ -51,7 +52,7 @@ class DadosFormComponent extends React.Component {
   validate( fn ) {
     fn()
     let dados = FactoryHelper.clone( DadosModel, this.state.dados )
-    this.setState( { dados } )
+    this.setState( { dados }, () => this.props.setModel( dados ) )
   }
 
   validateCpf() {
@@ -63,7 +64,7 @@ class DadosFormComponent extends React.Component {
   }
 
   validateEmail() {
-    this.validate( this.state.dados.email )
+    this.validate( this.state.dados.validateEmail )
   }
 
   validateTelefone() {

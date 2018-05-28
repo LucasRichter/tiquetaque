@@ -1,6 +1,4 @@
-import { DADOS, ENDERECO, MODELO } from '../utils/prefixes'
-import dados from './dados/dados.reducer'
-import endereco from './endereco/endereco.reducer'
+import { MODELO } from '../utils/prefixes'
 import modelo, { initialState as initialModelo } from './modelo/modelo.reducer'
 import { TROCAR_ETAPA, ETAPA_COMPLETA, SELECIONAR_TIQUE_TAQUES, SELECIONAR_FUNCIONARIOS, RECEBER_NOVIDADES, SELECIONAR_TIPO_PESSOA } from './index.actions'
 import { PLANOS, CNPJ } from '../utils/constants'
@@ -9,8 +7,6 @@ const initialState = {
   tiquetaques: 1,
   funcionarios: 30,
   modelo: initialModelo,
-  dados: {},
-  endereco: {},
   etapaAtual: 1,
   etapasCompletas: new Set(),
   ultimaEtapaCompleta: 0,
@@ -25,10 +21,6 @@ export default function preorder( state = initialState, action ) {
 
   let prefix = action.type.split( '_' )[ 0 ]
   switch ( prefix ) {
-    case DADOS:
-      return Object.assign( {}, state, { dados: dados( state.dados, action ) } )
-    case ENDERECO:
-      return Object.assign( {}, state, { endereco: endereco( state.endereco, action ) } )
     case MODELO:
       return Object.assign( {}, state, { modelo: modelo( state.modelo, action ) } )
     default:
