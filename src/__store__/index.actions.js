@@ -1,6 +1,5 @@
 import Firebase from '../utils/firebase'
 import { formatStateToServer } from '../utils/formatters'
-import { browserHistory } from 'react-router'
 
 export const TROCAR_ETAPA = 'TROCAR-ETAPA'
 export const trocarEtapa = proximaEtapa => {
@@ -57,10 +56,10 @@ export const cleanState = () => {
   }
 }
 
-export const salvarPreorder = ( { dados, endereco } ) => ( dispatch, getState ) => {
+export const salvarPreorder = ( { dados, endereco, history } ) => ( dispatch, getState ) => {
   const state = Object.assign( {}, getState(), { dados, endereco } )
   const preorder = formatStateToServer( state )
   Firebase.salvarPreorder( preorder )
   dispatch( etapaCompleta( 5 ) )
-  browserHistory.push( '/obrigado' )
+  history.push( '/obrigado' )
 }

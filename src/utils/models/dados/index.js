@@ -31,7 +31,7 @@ const FieldsMixins = {
       },
       set: cnpj => {
         obj.errors = Object.assign( {}, obj.errors, { [ field ]: '' } )
-        _field = normalizeNumberString( cnpj ).substring( 0, 15 )
+        _field = normalizeNumberString( cnpj ).substring( 0, 14 )
       }
     } )
     let validateCpnj = () => {

@@ -1,0 +1,19 @@
+.compartilhar-tiquetaque {
+  margin: 40px 0 64px;
+
+  &__text {
+    margin-bottom: 40px;
+    font-size: 15px;
+    color: #666;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: flex-start;
+    align-items: center;
+
+    button {
+      margin-right: 16px;
+    }
+  }
+}

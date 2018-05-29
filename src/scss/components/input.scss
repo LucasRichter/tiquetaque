@@ -9,7 +9,6 @@
   background-color: transparent;
   border: 0;
   border-bottom: 1px solid #595478;
-  margin-bottom: 35px;
   padding-left: 4px;
 
   & + label {
@@ -59,6 +58,20 @@
   &__block {
     position: relative;
     width: 100%;
+    margin-bottom: 45px;
+    &--error {
+      @extend .input__block;
+      .input {
+        border-color: #CA7E82;
+        &+label {
+          color: #CA7E82;
+        }
+      }
+
+      .label-erro {
+        opacity: 1;
+      }
+    }
   }
 
   &.menor {
@@ -75,4 +88,17 @@
   top: 0;
   transition: transform .125s ease-in-out,
   font-size .125s ease-in-out;
+}
+
+.label-erro {
+  opacity: 0;
+  transition: opacity .125s ease-in-out;
+  color: #CA7E82;
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  transform: translateY(100%);
+  left: 0;
+  bottom: 0;
+  line-height: 25px;
 }

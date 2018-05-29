@@ -37,11 +37,7 @@ export const validStates = [ 'AC', 'AL', 'AM', 'AP', 'BA', 'CE',
   'SE', 'SP', 'TO'
 ]
 
-
 export const VIA_CEP_URL = 'https://viacep.com.br/ws'
-export const FIREBASE_API_KEY = 'AIzaSyCKG-uuKlaT5y1aM6dIv-LvmNvREG8CsOc'
-export const FIREBASE_AUTH_DOMAIN = 'tique-taque-teste.firebaseapp.com'
-export const FIREBASE_DATABASE_URL = 'https://tique-taque-teste.firebaseio.com'
-export const FIREBASE_PROJET_ID = 'tique-taque-teste'
-export const FIREBASE_STORAGE_BUCKET = 'tique-taque-teste.appspot.com'
-export const FIREBASE_MESSAGING_SENDER_ID = '766880891163'
+export const FEEDBACK_MESSAGE_CONTATO = 'Sua mensagem foi enviada!  Em breve, entraremos em contato.'
+export const FEEDBACK_MESSAGE_EMAIL_DISPONIVEL = 'Enviaremos um e-mail quando o aplicativo for lançado.'
+export const FEEDBACK_MESSAGE_EMAIL_INDICADO = 'Enviaremos um e-mail quando o aplicativo for lançado.'

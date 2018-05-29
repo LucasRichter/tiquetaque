@@ -93,12 +93,14 @@ class DadosFormComponent extends React.Component {
         <p className={ `selecionar-modelo__text` }>{ `Seus dados` }</p>
         <p className={ `passos__text` }>{ `Para finalizar, preencha seus dados. Você será avisado quando o TiqueTaque estiver pronto para entrega.` }</p>
         <Input
+          error={ dados.errors.nome }
           fieldName={ `Nome Completo` }
           onChange={ this.handleNome.bind( this ) }
           type={ TYPE_TEXT }
           value={ dados.nome }
         />
         <Input
+          error={ dados.errors.email }
           fieldName={ `E-mail` }
           onBlur={ this.validateEmail.bind( this ) }
           onChange={ this.handleEmail.bind( this ) }
@@ -106,6 +108,7 @@ class DadosFormComponent extends React.Component {
           value={ dados.email }
         />
         <Input
+          error={ dados.errors.telefone }
           fieldName={ `Telefone` }
           menor
           onBlur={ this.validateTelefone.bind( this ) }
@@ -120,6 +123,7 @@ class DadosFormComponent extends React.Component {
           selected={ tipoPessoa }
         />
         <Input
+          error={ dados.errors[ tipoPessoa.toLowerCase() ] }
           fieldName={ tipoPessoa }
           menor
           onBlur={ this[ `validate${capitalize( tipoPessoa )}` ].bind( this ) }

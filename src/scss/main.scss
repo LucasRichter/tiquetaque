@@ -28,6 +28,10 @@ a {
 
 #app {
   overflow-x: hidden;
+
+  @media #{$tablet} {
+    overflow-x: initial;
+  }
 }
 
 //Components

@@ -1,20 +1,21 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { func, string } from 'prop-types'
+import { func, string, object } from 'prop-types'
 import PreorderShell from '../../../components/preorderShell'
 import Button, { TYPE_FORM } from '../../../components/button'
 import ReceberNovidades from '../../../components/receberNovidades'
 import DadosForm from '../../../components/dadosForm'
 import EnderecoForm from '../../../components/EnderecoForm'
-import { objToArray } from '../../../utils/formatters'
 import { salvarPreorder } from '../../../__store__/index.actions'
 import { CNPJ, CPF } from '../../../utils/constants'
 
 class passo5 extends React.Component {
   static propTypes = {
+    history: object.isRequired,
     salvarPreorder: func.isRequired,
     tipoPessoa: string.isRequired
   }
+
   constructor( props ) {
     super( props )
 
@@ -42,6 +43,23 @@ class passo5 extends React.Component {
     return dados.isValid && ( isValidCnpj || isValidCpf )
   }
 
+  onSubmit() {
+    const { endereco, dados } = this.state
+    const { salvarPreorder, history } = this.props
+
+    if ( endereco && dados ) {
+      endereco.validate()
+      dados.validate()
+
+      if ( endereco.isValid && this.isValidDados() ) {
+        const { tipoPessoa } = this.props
+        let newDados = Object.assign( {}, dados.toServer() )
+        delete newDados[ tipoPessoa === CNPJ ? 'cpf' : 'cnpj' ]
+        salvarPreorder( { endereco: endereco.toServer(), dados: newDados, history } )
+      }
+    }
+  }
+
   render() {
     return (
       <section className={ `passo-5` }>
@@ -59,26 +77,7 @@ class passo5 extends React.Component {
             </a>
           </p>
           <Button
-            onClick={ () => {
-              const { endereco, dados } = this.state
-              const { salvarPreorder } = this.props
-
-              if ( endereco && dados ) {
-                endereco.validate()
-                dados.validate()
-
-                if ( endereco.isValid && this.isValidDados() ) {
-                  const { tipoPessoa } = this.props
-                  let newDados = Object.assign( {}, dados.toServer() )
-                  delete newDados[ tipoPessoa === CNPJ ? 'cpf' : 'cnpj' ]
-                  salvarPreorder( { endereco: endereco.toServer(), dados: newDados } )
-                } else {
-                  alert( objToArray( endereco.errors ).join( '\n' ) + objToArray( dados.errors ).join( '\n' ) )
-                }
-              } else {
-                alert( 'Preencha seus dados, por favor!' )
-              }
-            } }
+            onClick={ this.onSubmit.bind( this ) }
             text={ `Finalizar reserva` }
             type={ TYPE_FORM }
           />

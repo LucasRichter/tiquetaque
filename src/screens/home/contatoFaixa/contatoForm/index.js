@@ -6,15 +6,22 @@ import Button, { TYPE_FORM } from '../../../../components/button'
 import ContatoModel from '../../../../utils/models/ContatoModel'
 import FactoryHelper from '../../../../utils/FactoryHelper'
 import Firebase from '../../../../utils/firebase'
-import { objToArray } from '../../../../utils/formatters'
+import FeedbackMessage from '../../../../components/feedBackMessage'
+import { FEEDBACK_MESSAGE_CONTATO } from '../../../../utils/constants'
 
 export default class ContatoForm extends React.Component {
   constructor( props ) {
     super( props )
 
     this.state = {
-      contato: ContatoModel()
+      contato: ContatoModel(),
+      showFeedbackMessage: false,
     }
+  }
+
+  showFeedback() {
+    this.setState( { showFeedbackMessage: true } )
+    setTimeout( () => this.setState( { showFeedbackMessage: false } ), 3000 )
   }
 
   update( value ) {
@@ -48,35 +55,50 @@ export default class ContatoForm extends React.Component {
     this.update( { mensagem: e.target.value } )
   }
 
+  validateEmail() {
+    this.validate( this.state.contato.validateEmail )
+  }
+
+  validateTelefone() {
+    this.validate( this.state.contato.validateTelefone )
+  }
+
   render() {
-    const { contato } = this.state
+    const { contato, showFeedbackMessage } = this.state
     return (
       <div className={ `form__inputs` }>
         <Input
+          error={ contato.errors.nome }
           fieldName={ `Seu nome` }
           onChange={ this.handleNome.bind( this ) }
           type={ TYPE_TEXT }
           value={ contato.nome }
         />
         <Input
+          error={ contato.errors.email }
           fieldName={ `Seu e-mail` }
+          onBlur={ this.validateEmail.bind( this ) }
           onChange={ this.handleEmail.bind( this ) }
           type={ TYPE_EMAIL }
           value={ contato.email }
         />
         <Input
+          error={ contato.errors.telefone }
           fieldName={ `Telefone` }
+          onBlur={ this.validateTelefone.bind( this ) }
           onChange={ this.handleTelefone.bind( this ) }
           type={ TYPE_NUMBER }
           value={ contato.telefone }
         />
         <Input
+          error={ contato.errors.empresa }
           fieldName={ `Empresa` }
           onChange={ this.handleEmpresa.bind( this ) }
           type={ TYPE_TEXT }
           value={ contato.empresa }
         />
         <Input
+          error={ contato.errors.mensagem }
           fieldName={ `Como podemos ajudar?` }
           onChange={ this.handleMensagem.bind( this ) }
           textarea
@@ -90,13 +112,13 @@ export default class ContatoForm extends React.Component {
             if ( contato.isValid ) {
               Firebase.salvarContato( contato.toServer() )
               this.setState( { contato: ContatoModel() } )
-            } else {
-              alert( objToArray( contato.errors ).join( '\n' ) )
+              this.showFeedback()
             }
           } }
           text={ `Enviar` }
           type={ TYPE_FORM }
         />
+        { showFeedbackMessage && <FeedbackMessage message={ FEEDBACK_MESSAGE_CONTATO } />}
       </div>
     )
   }

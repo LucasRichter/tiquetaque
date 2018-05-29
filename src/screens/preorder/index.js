@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { number } from 'prop-types'
+import { number, object } from 'prop-types'
 import { connect } from 'react-redux'
 import Passo1 from './passo1'
 import Passo2 from './passo2'
@@ -11,17 +11,11 @@ import ResumoPedido from '../../components/resumoPedido'
 import isMobile from '../../utils/device'
 import $ from 'jquery'
 
-const ETAPAS = [
-  <Passo1 key={ 1 } />,
-  <Passo2 key={ 2 } />,
-  <Passo3 key={ 3 } />,
-  <Passo4 key={ 4 } />,
-  <Passo5 key={ 5 } />,
-]
 
 class PreorderScreen extends Component {
   static propTypes = {
     etapaAtual: number.isRequired,
+    history: object.isRequired,
     ultimaEtapaCompleta: number.isRequired,
   }
 
@@ -32,7 +26,7 @@ class PreorderScreen extends Component {
   componentDidMount() {
     setTimeout( () => window.scrollTo( 0, 0 ), .1 )
     $( isMobile() ? window : this.mainContainer ).scroll( () => {
-      for ( let i = 1; i <= ETAPAS.length; i++ ) {
+      for ( let i = 1; i <= this.getEtapas().length; i++ ) {
         let passo = $( `.passo-${i}` )
         if ( passo.length ) {
           let isVisible = isInViewport( passo )
@@ -57,6 +51,19 @@ class PreorderScreen extends Component {
     } )
   }
 
+  getEtapas() {
+    return [
+      <Passo1 key={ 1 } />,
+      <Passo2 key={ 2 } />,
+      <Passo3 key={ 3 } />,
+      <Passo4 key={ 4 } />,
+      <Passo5
+        history={ this.props.history }
+        key={ 5 }
+      />,
+    ]
+  }
+
   render() {
     const { ultimaEtapaCompleta } = this.props
 
@@ -66,7 +73,7 @@ class PreorderScreen extends Component {
           className={ `preorder` }
           ref={ ref => this.mainContainer = ref }
         >
-          { ETAPAS.slice( 0, ultimaEtapaCompleta + 1 ) }
+          { this.getEtapas().slice( 0, ultimaEtapaCompleta + 1 ) }
         </section>
         { ( !isMobile() || ( isMobile() && ultimaEtapaCompleta !== 0 ) ) && <ResumoPedido /> }
       </section>

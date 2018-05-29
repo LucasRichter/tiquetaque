@@ -59,6 +59,11 @@
 
     a {
       margin-right: 24px;
+      cursor: pointer;
+    }
+
+    i {
+      cursor: pointer;
     }
   }
 
@@ -98,4 +103,8 @@
       right: inherit;
     }
   }
+}
+
+.rede--inative {
+  opacity: .2;
 }

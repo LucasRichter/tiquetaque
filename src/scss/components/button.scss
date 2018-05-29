@@ -50,6 +50,25 @@
     color: #595478;
   }
 
+   &--checking {
+    @extend .button;
+    border: solid 1px transparentize(#595478, 0.8);
+    background-color: transparent;
+    color: #42969b;
+    font-size: 12px;
+    padding: 16px 24px;
+
+    img {
+      width: 16px;
+    }
+  }
+
+  &--cancel {
+    @extend .button--preorder;
+    font-size: 12px;
+    padding: 16px 24px;
+  }
+
   &__image {
     margin-right: 8px;
   }

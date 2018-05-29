@@ -11,6 +11,7 @@ export default function ContatoFaixa() {
       <div className={ `form__infos` }>
         <ContatoForm />
         <img
+          className={ `form__img` }
           src={ require( `images/form/ilustra.png` ) }
         />
       </div>

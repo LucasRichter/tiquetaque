@@ -70,6 +70,7 @@ export default class EnderecoForm extends React.Component {
       <React.Fragment>
         <p className={ `passos__title--big` }>{ `Endereço de entrega` }</p>
         <Input
+          error={ endereco.errors.cep }
           fieldName={ `CEP` }
           menor
           onBlur={ this.validateCep.bind( this ) }
@@ -79,12 +80,14 @@ export default class EnderecoForm extends React.Component {
         />
         <Input
           disabled
+          error={ endereco.errors.rua }
           fieldName={ `Rua` }
           type={ TYPE_TEXT }
           value={ endereco.rua }
         />
         <div className={ `endereco-form__row` }>
           <Input
+            error={ endereco.errors.numero }
             fieldName={ `Número` }
             onChange={ this.handleNumero.bind( this ) }
             type={ TYPE_TEXT }
@@ -92,6 +95,7 @@ export default class EnderecoForm extends React.Component {
           />
           <div className={ `endereco-form__dummy` } />
           <Input
+            error={ endereco.errors.complemento }
             fieldName={ `Complemento` }
             onChange={ this.handleComplemento.bind( this ) }
             type={ TYPE_TEXT }
@@ -100,6 +104,7 @@ export default class EnderecoForm extends React.Component {
         </div>
         <Input
           disabled
+          error={ endereco.errors.bairro }
           fieldName={ `Bairro` }
           type={ TYPE_TEXT }
           value={ endereco.bairro }
@@ -107,6 +112,7 @@ export default class EnderecoForm extends React.Component {
         <div className={ `endereco-form__row` }>
           <Input
             disabled
+            error={ endereco.errors.cidade }
             fieldName={ `Cidade` }
             type={ TYPE_TEXT }
             value={ endereco.cidade }
@@ -119,6 +125,7 @@ export default class EnderecoForm extends React.Component {
           />
         </div>
         <Input
+          error={ endereco.errors.pais }
           fieldName={ `País` }
           menor
           onChange={ this.handlePais.bind( this ) }

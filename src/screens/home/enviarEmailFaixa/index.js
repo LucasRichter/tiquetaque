@@ -3,19 +3,36 @@ import Input from '../../../components/input'
 import { TYPE_EMAIL } from '../../../components/input/types'
 import Button, { TYPE_ICON_EMAIL } from '../../../components/button'
 import isMobile from '../../../utils/device'
-import Firebase from '../../../utils/Firebase'
+import Firebase from '../../../utils/firebase'
+import Mixins from '../../../utils/models/dados'
+import FactoryHelper from '../../../utils/FactoryHelper'
+import FeedbackMessage from '../../../components/feedBackMessage'
+import { FEEDBACK_MESSAGE_EMAIL_DISPONIVEL } from '../../../utils/constants'
 
 export default class EnviarEmailFaixa extends React.Component {
   constructor( props ) {
     super( props )
 
+    this.getDados = () => {
+      let dados = {}
+      Mixins.email( dados, 'email' )
+      return dados
+    }
+
     this.state = {
-      email: ''
+      dados: this.getDados(),
+      showFeedbackMessage: false,
     }
   }
 
+  showFeedbackMessage() {
+    this.setState( { showFeedbackMessage: true } )
+    setTimeout( () => this.setState( { showFeedbackMessage: false } ), 3000 )
+  }
+
   handleEmail( e ) {
-    this.setState( { email: e.target.value } )
+    let dados = FactoryHelper.assign( this.getDados, this.state.dados, { email: e.target.value } )
+    this.setState( { dados } )
   }
 
   getInfos() {
@@ -36,7 +53,14 @@ export default class EnviarEmailFaixa extends React.Component {
     )
   }
 
+  validateEmail() {
+    this.state.dados.validateEmail()
+    let dados = FactoryHelper.clone( this.getDados, this.state.dados )
+    this.setState( { dados } )
+  }
+
   render() {
+    const { showFeedbackMessage, dados } = this.state
     return (
       <section className={ `enviar-email` }>
         <img
@@ -57,21 +81,26 @@ export default class EnviarEmailFaixa extends React.Component {
             </p>
             { isMobile() && this.getInfos() }
             <Input
+              error={ dados.errors.email }
               fieldName={ `Seu e-mail` }
+              onBlur={ this.validateEmail.bind( this ) }
               onChange={ this.handleEmail.bind( this ) }
               type={ TYPE_EMAIL }
-              value={ this.state.email }
+              value={ dados.email }
             />
             <Button
               onClick={ () => {
-                this.dado
-                if ( !this.state.dados.erros.email ) {
-                  new Firebase().salvarEmailAvisoDisponivel( this.state.email )
+                const { dados } = this.state
+                dados.validateEmail()
+                if ( !dados.errors.email && dados.email ) {
+                  Firebase.salvarEmailAvisoDisponivel( dados.email )
+                  this.showFeedbackMessage()
                 }
               } }
               text={ `Avise-me quando disponível` }
               type={ TYPE_ICON_EMAIL }
             />
+            { showFeedbackMessage && <FeedbackMessage message={ FEEDBACK_MESSAGE_EMAIL_DISPONIVEL } />}
           </div>
         </div>
       </section>

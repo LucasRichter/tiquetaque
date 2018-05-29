@@ -59,11 +59,12 @@ export default class InputComponent extends React.Component {
   }
 
   render() {
-    const { disabled, fieldName, type, onFocus, onBlur, onChange, onKeyPress, value, textarea, menor } = this.props
+    const { disabled, fieldName, type, onFocus, onBlur, onChange, onKeyPress, value, textarea, menor, error } = this.props
+    const { hasError } = this.state
     let tag = {}
     tag.type = textarea ? 'textarea' : 'input'
     return (
-      <div className={ `input__block` } >
+      <div className={ `input__block${hasError ? '--error' : ''}` } >
         <tag.type
           className={ `input${textarea ? '--textarea' : ''} ${menor ? 'menor' : ''}` }
           disabled={ disabled }
@@ -83,6 +84,7 @@ export default class InputComponent extends React.Component {
         >
           { fieldName }
         </label>
+        <p className={ `label-erro` }>{ error }</p>
       </div>
     )
   }
