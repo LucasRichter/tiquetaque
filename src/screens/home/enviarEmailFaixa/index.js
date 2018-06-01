@@ -6,7 +6,7 @@ import isMobile from '../../../utils/device'
 import Firebase from '../../../utils/firebase'
 import Mixins from '../../../utils/models/dados'
 import FactoryHelper from '../../../utils/FactoryHelper'
-import FeedbackMessage from '../../../components/feedBackMessage'
+import FeedbackMessage from '../../../components/feedbackMessage'
 import { FEEDBACK_MESSAGE_EMAIL_DISPONIVEL } from '../../../utils/constants'
 
 export default class EnviarEmailFaixa extends React.Component {

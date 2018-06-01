@@ -6,7 +6,7 @@ import Button, { TYPE_FORM } from '../../../../components/button'
 import ContatoModel from '../../../../utils/models/ContatoModel'
 import FactoryHelper from '../../../../utils/FactoryHelper'
 import Firebase from '../../../../utils/firebase'
-import FeedbackMessage from '../../../../components/feedBackMessage'
+import FeedbackMessage from '../../../../components/feedbackMessage'
 import { FEEDBACK_MESSAGE_CONTATO } from '../../../../utils/constants'
 
 export default class ContatoForm extends React.Component {

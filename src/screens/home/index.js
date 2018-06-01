@@ -20,6 +20,9 @@ export default class Home extends Component {
 
   componentWillMount() {
     window.onscroll = function() {
+      if ( isMobile() ) {
+        return
+      }
       if ( document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 ) {
         document.body.classList.add( 'scroll' )
       } else {

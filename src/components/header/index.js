@@ -23,7 +23,7 @@ export default function Header() {
     <div
       className={ `nav__item-wrapper` }
       key={ link.to }
-      onClick={ () => scrollTo( link.to ) }
+      onClick={ () => scrollTo( link.to, 69 ) }
     >
       <a className={ `nav__item` } >
         { link.texto }

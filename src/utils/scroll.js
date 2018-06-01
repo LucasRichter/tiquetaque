@@ -1,14 +1,19 @@
 import $ from 'jquery'
+import isMobile from './device'
 
-export function scrollTo( className ) {
+export function scrollTo( className, headerHeight = 0 ) {
   let element = $( `.${className}` )
 
   if ( !element.length ) {
     return
   }
 
+  if ( isMobile() ) {
+    headerHeight = 0
+  }
+
   $( 'html, body' ).animate( {
-    scrollTop: element.offset().top - 69
+    scrollTop: element.offset().top - headerHeight
   }, 500 )
 }
 
