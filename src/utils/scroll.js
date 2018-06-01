@@ -8,7 +8,7 @@ export function scrollTo( className ) {
   }
 
   $( 'html, body' ).animate( {
-    scrollTop: element.offset().top
+    scrollTop: element.offset().top - 69
   }, 500 )
 }
 

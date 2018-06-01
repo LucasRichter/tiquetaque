@@ -1,15 +1,18 @@
 .header {
-	margin: 40px 25px;
+	padding: 40px 25px;
 	left: 0;
-  position: absolute;
+	position: absolute;
   right: 0;
   top: 0;
-  transition: background-color .125s ease-in-out;
+  transition: background-color .125s ease-in-out, padding .125s ease-in-out;
   z-index: 10;
 
 	@media #{$tablet} {
 		display: flex;
-		margin: 64px 95px;
+		padding: 64px 95px;
 		justify-content: space-between;
+  	position: fixed;
+		max-width: 1176px;
+		margin: auto;
 	}
 }

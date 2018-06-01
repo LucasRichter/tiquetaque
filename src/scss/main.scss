@@ -4,6 +4,16 @@
 @import 'constants';
 @import 'fonts';
 
+body {
+  &.scroll {
+    .header {
+      background-color: white;
+      padding: 20px 95px;
+      border-bottom: 1px solid #42969b;
+    }
+  }
+}
+
 p,
 div,
 textarea,
@@ -31,6 +41,8 @@ a {
 
   @media #{$tablet} {
     overflow-x: initial;
+    max-width: 1366px;
+    margin: auto;
   }
 }
 

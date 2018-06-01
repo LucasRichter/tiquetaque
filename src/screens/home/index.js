@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment, Component } from 'react'
 
 import Header from '../../components/header'
 import PrimeiraFaixa from './primeiraFaixa'
@@ -13,26 +13,42 @@ import ContatoFaixa from './contatoFaixa'
 import Footer from '../../components/footer'
 import isMobile from '../../utils/device'
 
-export default function Home() {
-  return (
-    <React.Fragment>
-      <Header />
-      <PrimeiraFaixa />
-      <TiqueTaqueFaixa />
-      <OrganizacaoFaixa />
-      <AppFaixa />
-      <PlanosFaixa />
-      <EnviarEmailFaixa />
-      <Clientes />
-      { !isMobile() &&
-        <img
-          className={ `home__prints` }
-          src={ require( '../../images/home/prints.png' ) }
-        />
+export default class Home extends Component {
+  constructor( props ) {
+    super( props )
+  }
+
+  componentWillMount() {
+    window.onscroll = function() {
+      if ( document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 ) {
+        document.body.classList.add( 'scroll' )
+      } else {
+        document.body.classList.remove( 'scroll' )
       }
-      <Duvidas />
-      <ContatoFaixa />
-      <Footer />
-    </React.Fragment>
-  )
+    }
+  }
+
+  render() {
+    return (
+      <Fragment>
+        <Header />
+        <PrimeiraFaixa />
+        <TiqueTaqueFaixa />
+        <OrganizacaoFaixa />
+        <AppFaixa />
+        <PlanosFaixa />
+        <EnviarEmailFaixa />
+        <Clientes />
+        { !isMobile() &&
+          <img
+            className={ `home__prints` }
+            src={ require( '../../images/home/prints.png' ) }
+          />
+        }
+        <Duvidas />
+        <ContatoFaixa />
+        <Footer />
+      </Fragment>
+    )
+  }
 }
