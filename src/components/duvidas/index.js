@@ -5,6 +5,7 @@ import { scrollTo } from '../../utils/scroll'
 import { CLASS_CONTATO } from '../../utils/constants'
 import isMobile from '../../utils/device'
 
+//TODO topiocos alterar
 const TOPICOS = [
   {
     key: 'instalacao',
@@ -19,7 +20,9 @@ const TOPICOS = [
     texto: 'Preços e planos',
   }
 ]
+//END TODO
 
+//TODO Duvidas
 const DUVIDAS = {
   instalacao: [
     {
@@ -62,6 +65,7 @@ const DUVIDAS = {
   }
   ]
 }
+//END TODO
 
 export default class Duvidas extends React.Component {
   constructor( props ) {

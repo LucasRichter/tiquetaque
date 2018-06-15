@@ -1,14 +1,15 @@
 import React from 'react'
 
+//TODO Clientes
 const CLIENTES = [
   'safepark',
   'renner',
   'youcom',
   'axur'
 ]
+//END TODO
 
-
-
+//TODO Ajustar comentários
 export default function Clientes() {
   return (
     <div className={ `clientes` } >

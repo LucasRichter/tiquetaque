@@ -1,7 +1,9 @@
 import React from 'react'
 
+//TODO Adicionar Links do app
 const LINK_APP_STORE = ''
 const LINK_PLAY_STORE = ''
+//END TODO
 
 export default function AppFaixa() {
   return (
